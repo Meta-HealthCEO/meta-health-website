@@ -44,7 +44,7 @@ export default function AIAutomation() {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               {/* Central Brain Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center glow-blue pulse-glow">
+                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center glow-cyan pulse-glow">
                   <Brain className="text-white" size={80} />
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function AIAutomation() {
                 {[0, 1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 glow-blue"
+                    className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 glow-cyan"
                     style={{
                       top: '50%',
                       left: '50%',
@@ -68,8 +68,8 @@ export default function AIAutomation() {
               <svg className="absolute inset-0 w-full h-full">
                 <defs>
                   <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#E91E8C" stopOpacity="0.3" />
                   </linearGradient>
                 </defs>
                 {[0, 1, 2, 3, 4].map((i) => (
@@ -108,6 +108,7 @@ export default function AIAutomation() {
             <div className="space-y-4">
               {capabilities.map((capability, index) => {
                 const Icon = capability.icon;
+                const isCyan = index % 2 === 0;
                 return (
                   <div
                     key={capability.title}
@@ -119,8 +120,10 @@ export default function AIAutomation() {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center flex-shrink-0">
-                        <Icon className="text-blue-400" size={24} />
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${
+                        isCyan ? 'from-cyan-600/20 to-cyan-600/10' : 'from-pink-600/20 to-pink-600/10'
+                      } flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={isCyan ? 'text-cyan-400' : 'text-pink-400'} size={24} />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-2">

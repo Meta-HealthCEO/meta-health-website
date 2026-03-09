@@ -9,54 +9,52 @@ export default function Features() {
       icon: Activity,
       title: 'Practice Management',
       description: 'Complete solution for managing your medical practice with scheduling, billing, and patient records.',
-      color: 'blue',
+      color: 'cyan',
       size: 'large'
     },
     {
       icon: Building2,
       title: 'Hospital Management',
       description: 'Enterprise-grade system for multi-facility hospital operations.',
-      color: 'purple',
+      color: 'pink',
       size: 'medium'
     },
     {
       icon: Video,
       title: 'Telemedicine',
       description: 'Integrated video consultations with full EMR integration.',
-      color: 'teal',
+      color: 'cyan',
       size: 'medium'
     },
     {
       icon: Heart,
       title: 'Remote Patient Monitoring',
       description: 'Real-time monitoring with wearable device integration and AI alerts.',
-      color: 'blue',
+      color: 'pink',
       size: 'large'
     },
     {
       icon: FileText,
       title: 'Medical Aid Billing',
       description: 'Automated billing and claims submission to all major medical aids.',
-      color: 'purple',
+      color: 'cyan',
       size: 'medium'
     },
     {
       icon: Brain,
       title: 'AI Automation',
       description: 'Smart automation for scheduling, diagnostics, and clinical decision support.',
-      color: 'teal',
+      color: 'pink',
       size: 'medium'
     }
   ];
 
   const getColorClasses = (color: string) => {
     switch (color) {
-      case 'blue':
-        return 'from-blue-600/20 to-blue-600/5 hover:from-blue-600/30 hover:to-blue-600/10 glow-hover-blue';
-      case 'purple':
-        return 'from-purple-600/20 to-purple-600/5 hover:from-purple-600/30 hover:to-purple-600/10 glow-hover-purple';
-      case 'teal':
-        return 'from-teal-600/20 to-teal-600/5 hover:from-teal-600/30 hover:to-teal-600/10 glow-hover-teal';
+      case 'cyan':
+        return 'from-cyan-600/20 to-cyan-600/5 hover:from-cyan-600/30 hover:to-cyan-600/10 glow-hover-cyan';
+      case 'pink':
+        return 'from-pink-600/20 to-pink-600/5 hover:from-pink-600/30 hover:to-pink-600/10 glow-hover-pink';
       default:
         return '';
     }
@@ -93,9 +91,8 @@ export default function Features() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${
-                  feature.color === 'blue' ? 'from-blue-600 to-blue-700' :
-                  feature.color === 'purple' ? 'from-purple-600 to-purple-700' :
-                  'from-teal-600 to-teal-700'
+                  feature.color === 'cyan' ? 'from-cyan-500 to-blue-600' :
+                  'from-pink-500 to-pink-700'
                 } flex items-center justify-center mb-6`}>
                   <Icon className="text-white" size={28} />
                 </div>

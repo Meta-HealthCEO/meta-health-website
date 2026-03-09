@@ -6,9 +6,9 @@ export default function DeviceIntegration() {
 
   const wearables = [
     { name: 'Apple Watch', color: 'from-slate-400 to-slate-600' },
-    { name: 'Garmin', color: 'from-blue-500 to-blue-700' },
-    { name: 'Fitbit', color: 'from-teal-500 to-teal-700' },
-    { name: 'Samsung Galaxy', color: 'from-purple-500 to-purple-700' }
+    { name: 'Garmin', color: 'from-cyan-500 to-blue-600' },
+    { name: 'Fitbit', color: 'from-pink-500 to-pink-700' },
+    { name: 'Samsung Galaxy', color: 'from-cyan-500 to-blue-600' }
   ];
 
   const devices = [

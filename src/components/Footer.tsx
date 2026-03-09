@@ -45,10 +45,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center glow-blue">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/images/logo-icon.png" 
+                alt="Meta Health" 
+                className="h-10 w-10"
+              />
               <span className="text-white font-bold text-xl">Meta Health</span>
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
@@ -102,19 +104,19 @@ export default function Footer() {
             {/* Compliance Badges */}
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                <div className="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-6 h-6 rounded bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                   P
                 </div>
                 <span className="text-slate-300 text-sm">POPIA</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                <div className="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-6 h-6 rounded bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                   H
                 </div>
                 <span className="text-slate-300 text-sm">HPCSA</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 glass-card rounded-lg">
-                <div className="w-6 h-6 rounded bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-6 h-6 rounded bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                   ISO
                 </div>
                 <span className="text-slate-300 text-sm">27001</span>

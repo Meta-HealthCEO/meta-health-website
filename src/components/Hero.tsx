@@ -46,19 +46,19 @@ export default function Hero() {
             {/* Stats */}
             <div className="flex flex-wrap gap-8">
               <div className="space-y-2">
-                <div className="text-4xl font-bold gradient-text-blue">
+                <div className="text-4xl font-bold gradient-text-cyan">
                   {facilities}+
                 </div>
                 <div className="text-sm text-slate-400">Facilities</div>
               </div>
               <div className="space-y-2">
-                <div className="text-4xl font-bold gradient-text-blue">
+                <div className="text-4xl font-bold gradient-text-cyan">
                   {modules}+
                 </div>
                 <div className="text-sm text-slate-400">Modules</div>
               </div>
               <div className="space-y-2">
-                <div className="text-4xl font-bold gradient-text-blue">
+                <div className="text-4xl font-bold gradient-text-cyan">
                   {uptime.toFixed(1)}%
                 </div>
                 <div className="text-sm text-slate-400">Uptime</div>
@@ -79,46 +79,46 @@ export default function Hero() {
 
           {/* Right - Floating Cards */}
           <div className="relative hidden lg:block h-[600px]">
-            {/* Card 1 */}
-            <div className="absolute top-0 right-0 w-72 glass-card rounded-2xl p-6 glow-blue float-animation">
+            {/* Card 1 - Cyan themed */}
+            <div className="absolute top-0 right-0 w-72 glass-card rounded-2xl p-6 glow-cyan float-animation">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-600/20 flex items-center justify-center">
-                  <Activity className="text-blue-400" size={24} />
+                <div className="w-12 h-12 rounded-lg bg-cyan-600/20 flex items-center justify-center">
+                  <Activity className="text-cyan-400" size={24} />
                 </div>
                 <div>
                   <div className="text-white font-semibold">Active Patients</div>
-                  <div className="text-2xl font-bold gradient-text-blue">12,458</div>
+                  <div className="text-2xl font-bold gradient-text-cyan">12,458</div>
                 </div>
               </div>
               <div className="mt-4 h-2 bg-slate-700 rounded-full overflow-hidden">
-                <div className="h-full w-3/4 bg-gradient-to-r from-blue-600 to-teal-500 rounded-full"></div>
+                <div className="h-full w-3/4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
               </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="absolute top-40 right-20 w-64 glass-card rounded-2xl p-6 glow-purple float-delay-1">
+            {/* Card 2 - Pink themed */}
+            <div className="absolute top-40 right-20 w-64 glass-card rounded-2xl p-6 glow-pink float-delay-1">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-purple-600/20 flex items-center justify-center">
-                  <Building2 className="text-purple-400" size={24} />
+                <div className="w-12 h-12 rounded-lg bg-pink-600/20 flex items-center justify-center">
+                  <Building2 className="text-pink-400" size={24} />
                 </div>
                 <div>
                   <div className="text-white font-semibold">Appointments</div>
-                  <div className="text-2xl font-bold gradient-text">847</div>
+                  <div className="text-2xl font-bold gradient-text-pink">847</div>
                   <div className="text-sm text-green-400">+23% this week</div>
                 </div>
               </div>
             </div>
 
-            {/* Card 3 */}
-            <div className="absolute bottom-20 right-10 w-60 glass-card rounded-2xl p-6 glow-teal float-delay-2">
+            {/* Card 3 - Cyan themed */}
+            <div className="absolute bottom-20 right-10 w-60 glass-card rounded-2xl p-6 glow-cyan float-delay-2">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-teal-600/20 flex items-center justify-center">
-                  <Shield className="text-teal-400" size={24} />
+                <div className="w-12 h-12 rounded-lg bg-cyan-600/20 flex items-center justify-center">
+                  <Shield className="text-cyan-400" size={24} />
                 </div>
                 <div>
                   <div className="text-white font-semibold">Security</div>
                   <div className="text-sm text-slate-300">POPIA Compliant</div>
-                  <div className="text-sm text-teal-400">ISO 27001 Certified</div>
+                  <div className="text-sm text-cyan-400">ISO 27001 Certified</div>
                 </div>
               </div>
             </div>

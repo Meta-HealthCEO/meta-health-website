@@ -61,13 +61,13 @@ export default function MobileApp() {
                     className={`
                       flex gap-4 p-6 rounded-xl
                       bg-white border border-slate-200
-                      hover:border-blue-300 hover:shadow-lg
+                      hover:border-cyan-300 hover:shadow-lg
                       transition-all duration-300
                       ${isInView ? 'animate-in-right' : 'scroll-animate'}
                     `}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center flex-shrink-0">
                       <Icon className="text-white" size={24} />
                     </div>
                     <div>
@@ -125,26 +125,26 @@ export default function MobileApp() {
                     
                     {/* Stats Cards */}
                     <div className="space-y-4">
-                      <div className="glass-card rounded-2xl p-4 glow-blue">
+                      <div className="glass-card rounded-2xl p-4 glow-cyan">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-slate-300 text-sm">Appointments</span>
-                          <Calendar className="text-blue-400" size={20} />
+                          <Calendar className="text-cyan-400" size={20} />
                         </div>
-                        <div className="text-white text-3xl font-bold gradient-text-blue">24</div>
+                        <div className="text-white text-3xl font-bold gradient-text-cyan">24</div>
                       </div>
                       
-                      <div className="glass-card rounded-2xl p-4 glow-purple">
+                      <div className="glass-card rounded-2xl p-4 glow-pink">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-slate-300 text-sm">Video Calls</span>
-                          <Video className="text-purple-400" size={20} />
+                          <Video className="text-pink-400" size={20} />
                         </div>
-                        <div className="text-white text-3xl font-bold gradient-text">8</div>
+                        <div className="text-white text-3xl font-bold gradient-text-pink">8</div>
                       </div>
                       
                       <div className="glass-card rounded-2xl p-4">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-slate-300 text-sm">Alerts</span>
-                          <Bell className="text-teal-400" size={20} />
+                          <Bell className="text-cyan-400" size={20} />
                         </div>
                         <div className="text-white text-3xl font-bold">3</div>
                       </div>

@@ -22,7 +22,7 @@ export default function CTA() {
         `}>
           {/* Icon */}
           <div className="flex justify-center">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center glow-blue pulse-glow">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center glow-cyan pulse-glow">
               <Sparkles className="text-white" size={40} />
             </div>
           </div>
@@ -43,15 +43,15 @@ export default function CTA() {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
             <div className={`glass-card rounded-xl p-6 ${isInView ? 'animate-in' : 'scroll-animate'}`} style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl font-bold gradient-text-blue mb-2">500+</div>
+              <div className="text-4xl font-bold gradient-text-cyan mb-2">500+</div>
               <div className="text-slate-300">Healthcare Facilities</div>
             </div>
             <div className={`glass-card rounded-xl p-6 ${isInView ? 'animate-in' : 'scroll-animate'}`} style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl font-bold gradient-text-blue mb-2">99.9%</div>
+              <div className="text-4xl font-bold gradient-text-cyan mb-2">99.9%</div>
               <div className="text-slate-300">Uptime Guarantee</div>
             </div>
             <div className={`glass-card rounded-xl p-6 ${isInView ? 'animate-in' : 'scroll-animate'}`} style={{ animationDelay: '0.4s' }}>
-              <div className="text-4xl font-bold gradient-text-blue mb-2">24/7</div>
+              <div className="text-4xl font-bold gradient-text-cyan mb-2">24/7</div>
               <div className="text-slate-300">Support Available</div>
             </div>
           </div>
@@ -70,19 +70,19 @@ export default function CTA() {
           {/* Trust Badges */}
           <div className={`pt-8 flex flex-wrap justify-center gap-8 ${isInView ? 'animate-in' : 'scroll-animate'}`} style={{ animationDelay: '0.6s' }}>
             <div className="flex items-center gap-2 text-slate-400">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                 P
               </div>
               <span>POPIA Compliant</span>
             </div>
             <div className="flex items-center gap-2 text-slate-400">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                 H
               </div>
               <span>HPCSA Approved</span>
             </div>
             <div className="flex items-center gap-2 text-slate-400">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center text-white text-xs font-bold">
                 ISO
               </div>
               <span>ISO 27001 Certified</span>

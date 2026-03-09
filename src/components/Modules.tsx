@@ -11,42 +11,40 @@ export default function Modules() {
   const [ref, isInView] = useInView<HTMLDivElement>();
 
   const modules = [
-    { icon: Calendar, name: 'Appointment Scheduling', color: 'blue' },
-    { icon: Users, name: 'Patient Management', color: 'purple' },
-    { icon: FileText, name: 'Electronic Medical Records', color: 'teal' },
-    { icon: DollarSign, name: 'Billing & Invoicing', color: 'blue' },
-    { icon: Activity, name: 'Clinical Workflow', color: 'purple' },
-    { icon: Video, name: 'Telemedicine', color: 'teal' },
-    { icon: Pill, name: 'Pharmacy Management', color: 'blue' },
-    { icon: Hospital, name: 'Hospital Management', color: 'purple' },
-    { icon: Stethoscope, name: 'Specialist Referrals', color: 'teal' },
-    { icon: ClipboardList, name: 'Lab Integration', color: 'blue' },
-    { icon: TrendingUp, name: 'Analytics & Reporting', color: 'purple' },
-    { icon: Shield, name: 'POPIA Compliance', color: 'teal' },
-    { icon: MessageSquare, name: 'Patient Communication', color: 'blue' },
-    { icon: Bell, name: 'Alerts & Notifications', color: 'purple' },
-    { icon: Mail, name: 'Email Integration', color: 'teal' },
-    { icon: Clock, name: 'Waitlist Management', color: 'blue' },
-    { icon: BarChart, name: 'Business Intelligence', color: 'purple' },
-    { icon: Settings, name: 'Practice Settings', color: 'teal' },
-    { icon: Database, name: 'Data Backup', color: 'blue' },
-    { icon: Lock, name: 'Role-Based Access', color: 'purple' },
-    { icon: UserCheck, name: 'Staff Management', color: 'teal' },
-    { icon: Smartphone, name: 'Mobile Apps', color: 'blue' },
-    { icon: Brain, name: 'AI Automation', color: 'purple' },
-    { icon: Heart, name: 'Remote Patient Monitoring', color: 'teal' },
-    { icon: Wifi, name: 'Device Integration', color: 'blue' },
-    { icon: Target, name: 'Quality Metrics', color: 'purple' }
+    { icon: Calendar, name: 'Appointment Scheduling', color: 'cyan' },
+    { icon: Users, name: 'Patient Management', color: 'pink' },
+    { icon: FileText, name: 'Electronic Medical Records', color: 'cyan' },
+    { icon: DollarSign, name: 'Billing & Invoicing', color: 'pink' },
+    { icon: Activity, name: 'Clinical Workflow', color: 'cyan' },
+    { icon: Video, name: 'Telemedicine', color: 'pink' },
+    { icon: Pill, name: 'Pharmacy Management', color: 'cyan' },
+    { icon: Hospital, name: 'Hospital Management', color: 'pink' },
+    { icon: Stethoscope, name: 'Specialist Referrals', color: 'cyan' },
+    { icon: ClipboardList, name: 'Lab Integration', color: 'pink' },
+    { icon: TrendingUp, name: 'Analytics & Reporting', color: 'cyan' },
+    { icon: Shield, name: 'POPIA Compliance', color: 'pink' },
+    { icon: MessageSquare, name: 'Patient Communication', color: 'cyan' },
+    { icon: Bell, name: 'Alerts & Notifications', color: 'pink' },
+    { icon: Mail, name: 'Email Integration', color: 'cyan' },
+    { icon: Clock, name: 'Waitlist Management', color: 'pink' },
+    { icon: BarChart, name: 'Business Intelligence', color: 'cyan' },
+    { icon: Settings, name: 'Practice Settings', color: 'pink' },
+    { icon: Database, name: 'Data Backup', color: 'cyan' },
+    { icon: Lock, name: 'Role-Based Access', color: 'pink' },
+    { icon: UserCheck, name: 'Staff Management', color: 'cyan' },
+    { icon: Smartphone, name: 'Mobile Apps', color: 'pink' },
+    { icon: Brain, name: 'AI Automation', color: 'cyan' },
+    { icon: Heart, name: 'Remote Patient Monitoring', color: 'pink' },
+    { icon: Wifi, name: 'Device Integration', color: 'cyan' },
+    { icon: Target, name: 'Quality Metrics', color: 'pink' }
   ];
 
   const getColorClasses = (color: string) => {
     switch (color) {
-      case 'blue':
-        return 'from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600';
-      case 'purple':
-        return 'from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600';
-      case 'teal':
-        return 'from-teal-600 to-teal-700 hover:from-teal-500 hover:to-teal-600';
+      case 'cyan':
+        return 'from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500';
+      case 'pink':
+        return 'from-pink-500 to-pink-700 hover:from-pink-400 hover:to-pink-600';
       default:
         return '';
     }
@@ -76,7 +74,7 @@ export default function Modules() {
                 className={`
                   glass-card rounded-xl p-6
                   flex flex-col items-center text-center
-                  hover:scale-110 glow-hover-blue
+                  hover:scale-110 glow-hover-cyan
                   transition-all duration-300 cursor-pointer
                   ${isInView ? 'animate-scale' : 'scroll-animate'}
                 `}

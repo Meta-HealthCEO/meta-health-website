@@ -67,11 +67,11 @@ export default function ForWho() {
                 />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/60 group-hover:from-blue-950 group-hover:via-blue-900/80 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/60 group-hover:from-cyan-950 group-hover:via-cyan-900/80 transition-all duration-500"></div>
                 
                 {/* Content */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mb-4 glow-blue">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center mb-4 glow-cyan">
                     <Icon className="text-white" size={32} />
                   </div>
                   
@@ -86,7 +86,7 @@ export default function ForWho() {
                   <ul className="space-y-2">
                     {segment.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-slate-200">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400"></div>
                         {feature}
                       </li>
                     ))}

@@ -80,7 +80,7 @@ export default function Pricing() {
               className={`
                 relative rounded-2xl p-8
                 ${plan.highlighted 
-                  ? 'glass-card glow-blue scale-105 border-2 border-blue-500/50' 
+                  ? 'glass-card glow-cyan scale-105 border-2 border-cyan-500/50' 
                   : 'glass-card hover:scale-105'
                 }
                 transition-all duration-500
@@ -89,7 +89,7 @@ export default function Pricing() {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-semibold glow-blue">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-pink-600 rounded-full text-white text-sm font-semibold glow-cyan">
                   Most Popular
                 </div>
               )}
@@ -101,7 +101,7 @@ export default function Pricing() {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold gradient-text-blue">{plan.price}</span>
+                  <span className="text-5xl font-bold gradient-text-cyan">{plan.price}</span>
                   {plan.price !== 'Custom' && (
                     <span className="text-slate-400">/{plan.period.split(' ')[1]}</span>
                   )}
@@ -117,7 +117,7 @@ export default function Pricing() {
                     <div className={`
                       w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5
                       ${plan.highlighted 
-                        ? 'bg-gradient-to-br from-blue-600 to-purple-600' 
+                        ? 'bg-gradient-to-br from-cyan-500 to-pink-600' 
                         : 'bg-slate-700'
                       }
                     `}>

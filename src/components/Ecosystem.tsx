@@ -68,21 +68,21 @@ export default function Ecosystem() {
             {/* Gradient Definitions */}
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#E91E8C" stopOpacity="0.6" />
               </linearGradient>
               <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#E91E8C" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#00BFFF" stopOpacity="0.6" />
               </linearGradient>
             </defs>
             
             {/* Animated Dots */}
             {isInView && (
               <>
-                <circle cx="33%" cy="50%" r="4" fill="#3B82F6" className="dot-pulse" />
-                <circle cx="50%" cy="50%" r="4" fill="#8B5CF6" className="dot-pulse" style={{ animationDelay: '0.3s' }} />
-                <circle cx="67%" cy="50%" r="4" fill="#06B6D4" className="dot-pulse" style={{ animationDelay: '0.6s' }} />
+                <circle cx="33%" cy="50%" r="4" fill="#0EA5E9" className="dot-pulse" />
+                <circle cx="50%" cy="50%" r="4" fill="#E91E8C" className="dot-pulse" style={{ animationDelay: '0.3s' }} />
+                <circle cx="67%" cy="50%" r="4" fill="#00BFFF" className="dot-pulse" style={{ animationDelay: '0.6s' }} />
               </>
             )}
           </svg>
@@ -92,9 +92,9 @@ export default function Ecosystem() {
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               const colors = [
-                { bg: 'from-blue-600/20', glow: 'glow-blue', icon: 'from-blue-600 to-blue-700' },
-                { bg: 'from-purple-600/20', glow: 'glow-purple', icon: 'from-purple-600 to-purple-700' },
-                { bg: 'from-teal-600/20', glow: 'glow-teal', icon: 'from-teal-600 to-teal-700' }
+                { bg: 'from-cyan-600/20', glow: 'glow-cyan', icon: 'from-cyan-500 to-blue-600' },
+                { bg: 'from-pink-600/20', glow: 'glow-pink', icon: 'from-pink-500 to-pink-700' },
+                { bg: 'from-cyan-600/20', glow: 'glow-cyan', icon: 'from-cyan-500 to-blue-600' }
               ];
               
               return (
@@ -124,7 +124,7 @@ export default function Ecosystem() {
                   <ul className="space-y-3">
                     {pillar.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-slate-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400"></div>
                         {feature}
                       </li>
                     ))}

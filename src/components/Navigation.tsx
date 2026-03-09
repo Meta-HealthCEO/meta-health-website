@@ -26,22 +26,26 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src="/images/logo-icon.png" alt="Meta Health" className="h-10 w-10" />
+            <img 
+              src="/images/logo-icon.png" 
+              alt="Meta Health" 
+              className="h-10 w-10"
+            />
             <span className="text-white font-bold text-xl">Meta Health</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-slate-300 hover:text-white transition-colors">
+            <a href="#features" className="text-slate-300 hover:text-cyan-400 transition-colors">
               Features
             </a>
-            <a href="#ecosystem" className="text-slate-300 hover:text-white transition-colors">
+            <a href="#ecosystem" className="text-slate-300 hover:text-cyan-400 transition-colors">
               Ecosystem
             </a>
-            <a href="#modules" className="text-slate-300 hover:text-white transition-colors">
+            <a href="#modules" className="text-slate-300 hover:text-cyan-400 transition-colors">
               Modules
             </a>
-            <a href="#pricing" className="text-slate-300 hover:text-white transition-colors">
+            <a href="#pricing" className="text-slate-300 hover:text-cyan-400 transition-colors">
               Pricing
             </a>
             <button className="btn-glow">
@@ -63,28 +67,28 @@ export default function Navigation() {
           <div className="md:hidden glass-card rounded-lg mt-2 p-4 space-y-4">
             <a
               href="#features"
-              className="block text-slate-300 hover:text-white transition-colors"
+              className="block text-slate-300 hover:text-cyan-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Features
             </a>
             <a
               href="#ecosystem"
-              className="block text-slate-300 hover:text-white transition-colors"
+              className="block text-slate-300 hover:text-cyan-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Ecosystem
             </a>
             <a
               href="#modules"
-              className="block text-slate-300 hover:text-white transition-colors"
+              className="block text-slate-300 hover:text-cyan-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Modules
             </a>
             <a
               href="#pricing"
-              className="block text-slate-300 hover:text-white transition-colors"
+              className="block text-slate-300 hover:text-cyan-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Pricing
