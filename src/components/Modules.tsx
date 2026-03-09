@@ -1,106 +1,98 @@
-import {
-  Calendar,
-  Users,
-  FileText,
-  Pill,
-  TestTube,
-  Stethoscope,
-  Bed,
-  Scissors,
-  ClipboardList,
-  CreditCard,
-  DollarSign,
-  BarChart3,
-  Shield,
-  MessageSquare,
-  Video,
-  Phone,
-  Mail,
-  Bell,
-  Clock,
-  Database,
-  Lock,
-  UserCheck,
-  Briefcase,
-  Package,
-  TrendingUp,
-  Activity,
+import { 
+  Calendar, Users, FileText, DollarSign, Activity, Video, 
+  Pill, Hospital, Stethoscope, ClipboardList, TrendingUp, 
+  Shield, MessageSquare, Bell, Mail, Clock, BarChart, 
+  Settings, Database, Lock, UserCheck, Smartphone, 
+  Brain, Heart, Wifi, Target
 } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const Modules = () => {
+export default function Modules() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
   const modules = [
-    { icon: Calendar, name: 'Appointment Scheduling' },
-    { icon: Users, name: 'Patient Management' },
-    { icon: FileText, name: 'Electronic Medical Records' },
-    { icon: Pill, name: 'Prescription Management' },
-    { icon: TestTube, name: 'Laboratory Integration' },
-    { icon: Stethoscope, name: 'Clinical Workflows' },
-    { icon: Bed, name: 'Bed Management' },
-    { icon: Scissors, name: 'Theatre Scheduling' },
-    { icon: ClipboardList, name: 'Nursing Station' },
-    { icon: CreditCard, name: 'Medical Aid Billing' },
-    { icon: DollarSign, name: 'Invoice & Payments' },
-    { icon: BarChart3, name: 'Analytics & Reporting' },
-    { icon: Shield, name: 'POPIA Compliance' },
-    { icon: MessageSquare, name: 'Secure Messaging' },
-    { icon: Video, name: 'Telemedicine' },
-    { icon: Phone, name: 'Call Center Integration' },
-    { icon: Mail, name: 'Email Automation' },
-    { icon: Bell, name: 'Smart Notifications' },
-    { icon: Clock, name: 'Waiting Room Management' },
-    { icon: Database, name: 'Data Backup & Recovery' },
-    { icon: Lock, name: 'Access Control' },
-    { icon: UserCheck, name: 'Staff Management' },
-    { icon: Briefcase, name: 'Inventory Control' },
-    { icon: Package, name: 'Pharmacy Management' },
-    { icon: TrendingUp, name: 'Business Intelligence' },
-    { icon: Activity, name: 'Vitals Monitoring' },
+    { icon: Calendar, name: 'Appointment Scheduling', color: 'blue' },
+    { icon: Users, name: 'Patient Management', color: 'purple' },
+    { icon: FileText, name: 'Electronic Medical Records', color: 'teal' },
+    { icon: DollarSign, name: 'Billing & Invoicing', color: 'blue' },
+    { icon: Activity, name: 'Clinical Workflow', color: 'purple' },
+    { icon: Video, name: 'Telemedicine', color: 'teal' },
+    { icon: Pill, name: 'Pharmacy Management', color: 'blue' },
+    { icon: Hospital, name: 'Hospital Management', color: 'purple' },
+    { icon: Stethoscope, name: 'Specialist Referrals', color: 'teal' },
+    { icon: ClipboardList, name: 'Lab Integration', color: 'blue' },
+    { icon: TrendingUp, name: 'Analytics & Reporting', color: 'purple' },
+    { icon: Shield, name: 'POPIA Compliance', color: 'teal' },
+    { icon: MessageSquare, name: 'Patient Communication', color: 'blue' },
+    { icon: Bell, name: 'Alerts & Notifications', color: 'purple' },
+    { icon: Mail, name: 'Email Integration', color: 'teal' },
+    { icon: Clock, name: 'Waitlist Management', color: 'blue' },
+    { icon: BarChart, name: 'Business Intelligence', color: 'purple' },
+    { icon: Settings, name: 'Practice Settings', color: 'teal' },
+    { icon: Database, name: 'Data Backup', color: 'blue' },
+    { icon: Lock, name: 'Role-Based Access', color: 'purple' },
+    { icon: UserCheck, name: 'Staff Management', color: 'teal' },
+    { icon: Smartphone, name: 'Mobile Apps', color: 'blue' },
+    { icon: Brain, name: 'AI Automation', color: 'purple' },
+    { icon: Heart, name: 'Remote Patient Monitoring', color: 'teal' },
+    { icon: Wifi, name: 'Device Integration', color: 'blue' },
+    { icon: Target, name: 'Quality Metrics', color: 'purple' }
   ];
 
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case 'blue':
+        return 'from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600';
+      case 'purple':
+        return 'from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600';
+      case 'teal':
+        return 'from-teal-600 to-teal-700 hover:from-teal-500 hover:to-teal-600';
+      default:
+        return '';
+    }
+  };
+
   return (
-    <section id="modules" className="py-20 lg:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            25+ Integrated Modules
+    <section id="modules" className="section bg-slate-900 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6">
+            <span className="gradient-text">25+ Integrated Modules</span>
           </h2>
-          <p className="text-xl text-gray-600">
-            Everything you need to run a modern healthcare facility, all in one unified platform
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Everything you need for comprehensive healthcare management, all in one platform
           </p>
         </div>
 
-        {/* Modules Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {modules.map((module, index) => {
             const Icon = module.icon;
             return (
               <div
                 key={module.name}
-                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group"
-                style={{ animationDelay: `${index * 30}ms` }}
+                className={`
+                  glass-card rounded-xl p-6
+                  flex flex-col items-center text-center
+                  hover:scale-110 glow-hover-blue
+                  transition-all duration-300 cursor-pointer
+                  ${isInView ? 'animate-scale' : 'scroll-animate'}
+                `}
+                style={{ animationDelay: `${(index % 12) * 0.05}s` }}
               >
-                <div className="bg-gray-100 group-hover:bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors">
-                  <Icon className="text-gray-700 group-hover:text-blue-600 transition-colors" size={22} />
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${getColorClasses(module.color)} flex items-center justify-center mb-3`}>
+                  <Icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-sm font-semibold text-gray-900 leading-snug">
+                <span className="text-white text-sm font-medium leading-tight">
                   {module.name}
-                </h3>
+                </span>
               </div>
             );
           })}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-6">All modules are fully integrated and work seamlessly together</p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg shadow-blue-200">
-            View Full Feature List
-          </button>
-        </div>
       </div>
     </section>
   );
-};
-
-export default Modules;
+}

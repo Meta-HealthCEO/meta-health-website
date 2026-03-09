@@ -1,116 +1,143 @@
-import { Brain, FileText, Calendar, Users, TrendingUp, Shield } from 'lucide-react';
+import { Brain, Zap, TrendingUp, Shield, Clock, MessageSquare } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const AIAutomation = () => {
-  const aiFeatures = [
+export default function AIAutomation() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
+  const capabilities = [
     {
-      icon: Brain,
-      title: 'Clinical Decision Support',
-      description: 'AI-powered diagnostic assistance, drug interaction alerts, and evidence-based treatment recommendations.',
-      impact: '40% faster diagnosis',
-    },
-    {
-      icon: FileText,
-      title: 'Automated Documentation',
-      description: 'Voice-to-text clinical notes, smart templating, and automated coding for ICD-10 and CPT compliance.',
-      impact: '3 hours saved daily',
-    },
-    {
-      icon: Calendar,
-      title: 'Intelligent Scheduling',
-      description: 'AI optimization of appointment slots, no-show prediction, and automated patient routing.',
-      impact: '25% more patients',
-    },
-    {
-      icon: Users,
-      title: 'Smart Triage',
-      description: 'Automated patient prioritization, severity assessment, and intelligent resource allocation.',
-      impact: '60% faster triage',
+      icon: Zap,
+      title: 'Smart Scheduling',
+      description: 'AI-powered appointment optimization and patient flow management'
     },
     {
       icon: TrendingUp,
       title: 'Predictive Analytics',
-      description: 'Early risk detection, readmission prevention, and population health management insights.',
-      impact: '35% risk reduction',
+      description: 'Forecast patient trends and optimize resource allocation'
     },
     {
       icon: Shield,
-      title: 'Fraud Detection',
-      description: 'Automated billing audit, claim validation, and anomaly detection for medical aid submissions.',
-      impact: '99% accuracy',
+      title: 'Clinical Decision Support',
+      description: 'Real-time alerts and evidence-based recommendations'
     },
+    {
+      icon: Clock,
+      title: 'Workflow Automation',
+      description: 'Automate routine tasks and reduce administrative burden'
+    },
+    {
+      icon: MessageSquare,
+      title: 'Natural Language Processing',
+      description: 'Voice-to-text documentation and intelligent charting'
+    }
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-20">
-        <img
-          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80"
-          alt="AI Technology"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-gray-900 to-blue-900"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block mb-6">
-            <span className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
-              Powered by AI
-            </span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Artificial Intelligence That Works
-            <span className="block text-blue-400 mt-2">for Healthcare</span>
-          </h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Advanced machine learning and AI automation to enhance clinical outcomes, reduce administrative burden, and improve patient care
-          </p>
-        </div>
-
-        {/* AI Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {aiFeatures.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={feature.title}
-                className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl hover:bg-white/15 transition-all duration-300"
-              >
-                <div className="bg-blue-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="text-blue-400" size={28} />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-gray-300 mb-4 leading-relaxed">{feature.description}</p>
-                <div className="inline-block px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-lg">
-                  <span className="text-green-400 font-semibold text-sm">{feature.impact}</span>
+    <section className="section bg-slate-950 gradient-mesh-hero relative overflow-hidden">
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 dot-pattern opacity-20"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left - Visual */}
+          <div className="relative">
+            <div className="relative w-full aspect-square max-w-md mx-auto">
+              {/* Central Brain Icon */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center glow-blue pulse-glow">
+                  <Brain className="text-white" size={80} />
                 </div>
               </div>
-            );
-          })}
-        </div>
+              
+              {/* Orbiting Elements */}
+              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s' }}>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 glow-blue"
+                    style={{
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${i * 72}deg) translateY(-150px)`,
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* Connecting Lines */}
+              <svg className="absolute inset-0 w-full h-full">
+                <defs>
+                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <line
+                    key={i}
+                    x1="50%"
+                    y1="50%"
+                    x2="50%"
+                    y2="20%"
+                    stroke="url(#lineGradient)"
+                    strokeWidth="1"
+                    className="animate-spin origin-center"
+                    style={{
+                      transformOrigin: '50% 50%',
+                      transform: `rotate(${i * 72}deg)`,
+                      animationDuration: '20s'
+                    }}
+                  />
+                ))}
+              </svg>
+            </div>
+          </div>
 
-        {/* Bottom Stats */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-blue-400 mb-2">10M+</p>
-              <p className="text-gray-300">AI Predictions Made</p>
+          {/* Right - Content */}
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-5xl font-bold mb-6">
+                <span className="gradient-text">Powered by AI</span>
+              </h2>
+              <p className="text-xl text-slate-300">
+                Harness the power of artificial intelligence to deliver better patient outcomes 
+                and streamline operations.
+              </p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-blue-400 mb-2">95%</p>
-              <p className="text-gray-300">Clinical Accuracy</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-blue-400 mb-2">15hrs</p>
-              <p className="text-gray-300">Saved per Provider Weekly</p>
+
+            <div className="space-y-4">
+              {capabilities.map((capability, index) => {
+                const Icon = capability.icon;
+                return (
+                  <div
+                    key={capability.title}
+                    className={`
+                      glass-card rounded-xl p-6 
+                      hover:bg-white/10 transition-all duration-300
+                      ${isInView ? 'animate-in-left' : 'scroll-animate'}
+                    `}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex gap-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center flex-shrink-0">
+                        <Icon className="text-blue-400" size={24} />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white mb-2">
+                          {capability.title}
+                        </h3>
+                        <p className="text-slate-300 text-sm">
+                          {capability.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default AIAutomation;
+}

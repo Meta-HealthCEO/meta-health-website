@@ -1,110 +1,140 @@
-import { Monitor, Smartphone, Watch } from 'lucide-react';
+import { Monitor, Smartphone, Wifi } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const Ecosystem = () => {
+export default function Ecosystem() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
   const pillars = [
     {
       icon: Monitor,
       title: 'Web Platform',
-      description: 'Comprehensive practice and hospital management system accessible from any browser. Full EMR/EHR, billing, scheduling, and clinical workflows.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80',
-      features: [
-        'Cloud-based access',
-        'Multi-location support',
-        'Role-based permissions',
-        'Real-time collaboration',
-      ],
+      description: 'Complete practice management accessible from any browser',
+      features: ['EMR System', 'Billing & Claims', 'Analytics Dashboard', 'Patient Portal']
     },
     {
       icon: Smartphone,
       title: 'Mobile App',
-      description: 'Native iOS and Android app for healthcare providers and patients. Access records, schedule appointments, and manage care on the go.',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
-      features: [
-        'Patient portal',
-        'Provider dashboard',
-        'Secure messaging',
-        'Offline mode',
-      ],
+      description: 'Native iOS & Android apps for healthcare on the go',
+      features: ['Telemedicine', 'Mobile Prescribing', 'Patient Engagement', 'Real-time Alerts']
     },
     {
-      icon: Watch,
-      title: 'Device Integration',
-      description: 'Seamless integration with wearables and medical devices. Continuous monitoring and real-time health data synchronization.',
-      image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&q=80',
-      features: [
-        'Apple Health & HealthKit',
-        'Google Fit integration',
-        'Medical device APIs',
-        'Automated data capture',
-      ],
-    },
+      icon: Wifi,
+      title: 'IoT Devices',
+      description: 'Seamless integration with medical devices and wearables',
+      features: ['Vitals Monitoring', 'Wearable Integration', 'Device Management', 'AI Analytics']
+    }
   ];
 
   return (
-    <section id="ecosystem" className="py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Complete Healthcare Ecosystem
+    <section id="ecosystem" className="section bg-slate-900 relative overflow-hidden">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 opacity-50"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold mb-6">
+            <span className="gradient-text">The Complete Ecosystem</span>
           </h2>
-          <p className="text-xl text-gray-600">
-            Seamlessly connected across web, mobile, and devices for comprehensive patient care
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Three interconnected pillars working seamlessly together
           </p>
         </div>
 
-        {/* Three Pillars */}
-        <div className="space-y-16">
-          {pillars.map((pillar, index) => {
-            const Icon = pillar.icon;
-            const isEven = index % 2 === 0;
+        {/* Connection Lines SVG */}
+        <div className="relative">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" style={{ zIndex: 0 }}>
+            {/* Line from Web to Mobile */}
+            <line
+              x1="33%"
+              y1="50%"
+              x2="50%"
+              y2="50%"
+              stroke="url(#gradient1)"
+              strokeWidth="2"
+              className={isInView ? 'draw-line' : ''}
+            />
+            {/* Line from Mobile to Devices */}
+            <line
+              x1="50%"
+              y1="50%"
+              x2="67%"
+              y2="50%"
+              stroke="url(#gradient2)"
+              strokeWidth="2"
+              className={isInView ? 'draw-line' : ''}
+              style={{ animationDelay: '0.3s' }}
+            />
             
-            return (
-              <div
-                key={pillar.title}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  isEven ? '' : 'lg:grid-flow-dense'
-                }`}
-              >
-                {/* Content */}
-                <div className={isEven ? '' : 'lg:col-start-2'}>
-                  <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                    <Icon className="text-blue-600" size={32} />
+            {/* Gradient Definitions */}
+            <defs>
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.6" />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.6" />
+              </linearGradient>
+            </defs>
+            
+            {/* Animated Dots */}
+            {isInView && (
+              <>
+                <circle cx="33%" cy="50%" r="4" fill="#3B82F6" className="dot-pulse" />
+                <circle cx="50%" cy="50%" r="4" fill="#8B5CF6" className="dot-pulse" style={{ animationDelay: '0.3s' }} />
+                <circle cx="67%" cy="50%" r="4" fill="#06B6D4" className="dot-pulse" style={{ animationDelay: '0.6s' }} />
+              </>
+            )}
+          </svg>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative" style={{ zIndex: 1 }}>
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              const colors = [
+                { bg: 'from-blue-600/20', glow: 'glow-blue', icon: 'from-blue-600 to-blue-700' },
+                { bg: 'from-purple-600/20', glow: 'glow-purple', icon: 'from-purple-600 to-purple-700' },
+                { bg: 'from-teal-600/20', glow: 'glow-teal', icon: 'from-teal-600 to-teal-700' }
+              ];
+              
+              return (
+                <div
+                  key={pillar.title}
+                  className={`
+                    glass-card rounded-2xl p-8
+                    bg-gradient-to-br ${colors[index].bg}
+                    ${colors[index].glow}
+                    hover:scale-105 transition-all duration-500
+                    ${isInView ? 'animate-in' : 'scroll-animate'}
+                  `}
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colors[index].icon} flex items-center justify-center mb-6`}>
+                    <Icon className="text-white" size={32} />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     {pillar.title}
                   </h3>
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  
+                  <p className="text-slate-300 mb-6">
                     {pillar.description}
                   </p>
+                  
                   <ul className="space-y-3">
                     {pillar.features.map((feature) => (
-                      <li key={feature} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                        <span className="text-gray-700">{feature}</span>
+                      <li key={feature} className="flex items-center gap-2 text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400"></div>
+                        {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                {/* Image */}
-                <div className={isEven ? 'lg:col-start-2' : 'lg:col-start-1 lg:row-start-1'}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img
-                      src={pillar.image}
-                      alt={pillar.title}
-                      className="w-full h-auto"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-transparent"></div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Ecosystem;
+}

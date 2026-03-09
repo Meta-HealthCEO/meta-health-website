@@ -1,132 +1,172 @@
-import { Shield, Calendar, MessageSquare, FileText, Bell, Users } from 'lucide-react';
+import { Smartphone, Video, Bell, Calendar, FileText, Heart } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const MobileApp = () => {
-  const appFeatures = [
+export default function MobileApp() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
+  const features = [
+    {
+      icon: Video,
+      title: 'Telemedicine Anywhere',
+      description: 'Conduct video consultations from any location'
+    },
     {
       icon: Calendar,
       title: 'Smart Scheduling',
-      description: 'Book appointments, manage calendar, and get automated reminders',
-    },
-    {
-      icon: MessageSquare,
-      title: 'Secure Messaging',
-      description: 'HIPAA-compliant chat between patients and healthcare providers',
+      description: 'Manage appointments on the go with AI assistance'
     },
     {
       icon: FileText,
-      title: 'Medical Records',
-      description: 'Access complete health history, test results, and prescriptions',
+      title: 'Mobile Prescribing',
+      description: 'Write and send prescriptions instantly'
     },
     {
       icon: Bell,
-      title: 'Smart Notifications',
-      description: 'Medication reminders, appointment alerts, and health updates',
+      title: 'Real-time Alerts',
+      description: 'Get notified of urgent patient updates'
     },
     {
-      icon: Users,
-      title: 'Family Management',
-      description: 'Manage care for entire family from a single account',
-    },
-    {
-      icon: Shield,
-      title: 'Biometric Security',
-      description: 'Face ID and fingerprint authentication for data protection',
-    },
+      icon: Heart,
+      title: 'Patient Vitals',
+      description: 'Monitor patient health data in real-time'
+    }
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
-                alt="Meta Health One mobile app"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 to-transparent"></div>
-            </div>
-            
-            {/* App Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6">
-              <div className="flex items-center space-x-3">
-                <div className="bg-blue-100 rounded-full p-3">
-                  <Smartphone className="text-blue-600" size={24} />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-900">4.9★</p>
-                  <p className="text-sm text-gray-600">App Store</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Content */}
-          <div className="space-y-8">
+    <section className="section bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50 to-transparent opacity-50"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left - Content */}
+          <div className="space-y-8 order-2 lg:order-1">
             <div>
-              <span className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
-                iOS & Android
-              </span>
+              <h2 className="text-5xl font-bold text-slate-900 mb-6">
+                Meta Health <span className="gradient-text">One</span>
+              </h2>
+              <p className="text-xl text-slate-600">
+                Healthcare management in your pocket. Native iOS and Android apps 
+                designed for healthcare professionals on the move.
+              </p>
             </div>
-            
-            <h2 className="text-4xl lg:text-5xl font-bold">
-              Meta Health One
-              <span className="block text-blue-400 mt-2">Patient & Provider App</span>
-            </h2>
-            
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Native mobile experience for both patients and healthcare providers. Manage appointments, access records, communicate securely, and monitor health data on the go.
-            </p>
 
-            {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-6 pt-4">
-              {appFeatures.map((feature) => {
+            <div className="space-y-4">
+              {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={feature.title} className="space-y-2">
-                    <div className="flex items-center space-x-3">
-                      <Icon className="text-blue-400" size={20} />
-                      <h3 className="font-semibold">{feature.title}</h3>
+                  <div
+                    key={feature.title}
+                    className={`
+                      flex gap-4 p-6 rounded-xl
+                      bg-white border border-slate-200
+                      hover:border-blue-300 hover:shadow-lg
+                      transition-all duration-300
+                      ${isInView ? 'animate-in-right' : 'scroll-animate'}
+                    `}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center flex-shrink-0">
+                      <Icon className="text-white" size={24} />
                     </div>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-900 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Download Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors">
-                <span>Download on App Store</span>
+            <div className="flex gap-4">
+              <button className="btn-primary flex items-center gap-2">
+                <Smartphone size={20} />
+                Download on iOS
               </button>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors">
-                <span>Get it on Google Play</span>
+              <button className="btn-primary flex items-center gap-2">
+                <Smartphone size={20} />
+                Get on Android
               </button>
+            </div>
+          </div>
+
+          {/* Right - Phone Mockup */}
+          <div className="order-1 lg:order-2 flex justify-center">
+            <div className={`relative ${isInView ? 'float-animation' : ''}`}>
+              {/* Phone Frame */}
+              <div className="relative w-80 h-[640px] bg-slate-900 rounded-[3rem] p-4 shadow-2xl">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-8 bg-slate-900 rounded-b-3xl z-20"></div>
+                
+                {/* Screen */}
+                <div className="relative w-full h-full bg-gradient-to-br from-slate-950 to-slate-900 rounded-[2.5rem] overflow-hidden">
+                  {/* Status Bar */}
+                  <div className="absolute top-0 left-0 right-0 h-12 flex items-center justify-between px-8 text-white text-xs z-10">
+                    <span>9:41</span>
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 rounded-full bg-white"></div>
+                      <div className="w-1 h-1 rounded-full bg-white"></div>
+                      <div className="w-1 h-1 rounded-full bg-white"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative pt-12 pb-8 px-6 h-full">
+                    {/* Header */}
+                    <div className="mb-6">
+                      <h3 className="text-white text-2xl font-bold mb-2">Dashboard</h3>
+                      <p className="text-slate-400 text-sm">Today's Overview</p>
+                    </div>
+                    
+                    {/* Stats Cards */}
+                    <div className="space-y-4">
+                      <div className="glass-card rounded-2xl p-4 glow-blue">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-slate-300 text-sm">Appointments</span>
+                          <Calendar className="text-blue-400" size={20} />
+                        </div>
+                        <div className="text-white text-3xl font-bold gradient-text-blue">24</div>
+                      </div>
+                      
+                      <div className="glass-card rounded-2xl p-4 glow-purple">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-slate-300 text-sm">Video Calls</span>
+                          <Video className="text-purple-400" size={20} />
+                        </div>
+                        <div className="text-white text-3xl font-bold gradient-text">8</div>
+                      </div>
+                      
+                      <div className="glass-card rounded-2xl p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-slate-300 text-sm">Alerts</span>
+                          <Bell className="text-teal-400" size={20} />
+                        </div>
+                        <div className="text-white text-3xl font-bold">3</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -right-8 top-20 glass-card rounded-xl p-4 glow-blue float-delay-1 hidden lg:block">
+                <div className="flex items-center gap-2">
+                  <Heart className="text-red-400" size={20} />
+                  <div>
+                    <div className="text-white text-sm font-semibold">Heart Rate</div>
+                    <div className="text-slate-300 text-xs">72 BPM</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-const Smartphone = ({ className, size }: { className?: string; size?: number }) => (
-  <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-  </svg>
-);
-
-export default MobileApp;
+}

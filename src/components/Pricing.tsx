@@ -1,159 +1,154 @@
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const Pricing = () => {
+export default function Pricing() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
   const plans = [
     {
-      name: 'Practice',
-      description: 'For solo practitioners and small practices',
-      price: 'From R4,500',
+      name: 'Starter',
+      price: 'R2,999',
       period: 'per month',
+      description: 'Perfect for solo practitioners',
       features: [
-        'Up to 3 practitioners',
-        'Complete EMR/EHR system',
+        'Single practitioner',
+        'Up to 100 patients',
+        'Basic EMR',
         'Appointment scheduling',
-        'Medical aid billing',
-        'Patient portal',
-        'Prescription management',
-        'Basic reporting',
-        'Email support',
+        'Billing & invoicing',
+        'Email support'
       ],
-      cta: 'Contact Sales',
-      highlighted: false,
+      highlighted: false
     },
     {
-      name: 'Clinic',
-      description: 'For multi-doctor clinics and specialty practices',
-      price: 'From R12,500',
+      name: 'Professional',
+      price: 'R7,999',
       period: 'per month',
+      description: 'Ideal for growing practices',
       features: [
-        'Up to 15 practitioners',
-        'All Practice features',
-        'Telemedicine included',
-        'Device integration',
-        'Advanced analytics',
-        'Multi-location support',
+        'Up to 5 practitioners',
+        'Unlimited patients',
+        'Full EMR system',
+        'Telemedicine',
+        'Lab integration',
+        'Medical aid billing',
+        'Analytics dashboard',
         'Priority support',
-        'Custom workflows',
-        'API access',
+        'Mobile apps'
       ],
-      cta: 'Contact Sales',
-      highlighted: true,
+      highlighted: true
     },
     {
-      name: 'Hospital',
-      description: 'For hospitals and large healthcare groups',
+      name: 'Enterprise',
       price: 'Custom',
-      period: 'enterprise pricing',
+      period: 'contact us',
+      description: 'For hospitals and large facilities',
       features: [
         'Unlimited practitioners',
-        'All Clinic features',
-        'Hospital information system',
-        'Bed & theatre management',
-        'Emergency room module',
-        'ICU monitoring',
+        'Multi-facility support',
+        'Custom workflows',
+        'Advanced analytics',
+        'API access',
         'Dedicated account manager',
-        'White-label options',
-        'SLA guarantee',
+        '24/7 phone support',
+        'Custom integrations',
+        'SLA guarantee'
       ],
-      cta: 'Contact Sales',
-      highlighted: false,
-    },
+      highlighted: false
+    }
   ];
 
   return (
-    <section id="pricing" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Transparent, Scalable Pricing
+    <section id="pricing" className="section bg-slate-950 gradient-mesh-hero relative overflow-hidden">
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 dot-pattern opacity-20"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-6">
+            <span className="gradient-text">Simple, Transparent Pricing</span>
           </h2>
-          <p className="text-xl text-gray-600">
-            No hidden fees. No per-patient charges. One predictable monthly price.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Choose the plan that fits your practice. All plans include free updates and POPIA compliance.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative bg-white rounded-2xl border-2 ${
-                plan.highlighted
-                  ? 'border-blue-600 shadow-2xl lg:scale-105'
-                  : 'border-gray-200 shadow-lg'
-              } p-8 transition-all hover:shadow-2xl`}
+              className={`
+                relative rounded-2xl p-8
+                ${plan.highlighted 
+                  ? 'glass-card glow-blue scale-105 border-2 border-blue-500/50' 
+                  : 'glass-card hover:scale-105'
+                }
+                transition-all duration-500
+                ${isInView ? 'animate-in' : 'scroll-animate'}
+              `}
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white text-sm font-semibold glow-blue">
                   Most Popular
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-gray-600">{plan.description}</p>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-slate-400 text-sm">{plan.description}</p>
               </div>
 
               <div className="mb-8">
-                <div className="flex items-baseline">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-5xl font-bold gradient-text-blue">{plan.price}</span>
+                  {plan.price !== 'Custom' && (
+                    <span className="text-slate-400">/{plan.period.split(' ')[1]}</span>
+                  )}
                 </div>
-                <p className="text-gray-600 mt-1">{plan.period}</p>
+                {plan.price === 'Custom' && (
+                  <p className="text-slate-400 text-sm mt-1">{plan.period}</p>
+                )}
               </div>
 
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start space-x-3">
-                    <Check className="text-green-500 flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-gray-700">{feature}</span>
+                  <li key={feature} className="flex items-start gap-3">
+                    <div className={`
+                      w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5
+                      ${plan.highlighted 
+                        ? 'bg-gradient-to-br from-blue-600 to-purple-600' 
+                        : 'bg-slate-700'
+                      }
+                    `}>
+                      <Check className="text-white" size={14} />
+                    </div>
+                    <span className="text-slate-300">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <button
-                className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors ${
-                  plan.highlighted
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-200'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                }`}
+                className={`
+                  w-full py-4 rounded-lg font-semibold transition-all duration-300
+                  ${plan.highlighted
+                    ? 'btn-glow'
+                    : 'glass-card text-white hover:bg-white/10'
+                  }
+                `}
               >
-                <span>{plan.cta}</span>
-                <ArrowRight size={20} />
+                {plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}
               </button>
             </div>
           ))}
         </div>
 
-        {/* Bottom Info */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 lg:p-12">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-3xl font-bold text-blue-600 mb-2">30 Days</p>
-              <p className="text-gray-700">Free trial period</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-blue-600 mb-2">No Setup Fee</p>
-              <p className="text-gray-700">Free onboarding & training</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-blue-600 mb-2">24/7</p>
-              <p className="text-gray-700">Support available</p>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-            <p className="text-gray-600 mb-4">
-              All plans include data migration, staff training, and ongoing support
-            </p>
-            <p className="text-sm text-gray-500">
-              Prices exclude VAT. Medical aid integration fees may apply. Custom enterprise agreements available.
-            </p>
-          </div>
+        <div className="text-center mt-12">
+          <p className="text-slate-400">
+            All plans include a 30-day free trial. No credit card required.
+          </p>
         </div>
       </div>
     </section>
   );
-};
-
-export default Pricing;
+}

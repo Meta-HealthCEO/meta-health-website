@@ -1,30 +1,30 @@
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
+import TrustedBy from './components/TrustedBy'
 import Features from './components/Features'
 import Ecosystem from './components/Ecosystem'
+import AIAutomation from './components/AIAutomation'
 import MobileApp from './components/MobileApp'
 import DeviceIntegration from './components/DeviceIntegration'
-import AIAutomation from './components/AIAutomation'
-import ForWho from './components/ForWho'
 import Modules from './components/Modules'
-import HowItWorks from './components/HowItWorks'
+import ForWho from './components/ForWho'
 import Pricing from './components/Pricing'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       <Navigation />
       <Hero />
+      <TrustedBy />
       <Features />
       <Ecosystem />
+      <AIAutomation />
       <MobileApp />
       <DeviceIntegration />
-      <AIAutomation />
-      <ForWho />
       <Modules />
-      <HowItWorks />
+      <ForWho />
       <Pricing />
       <CTA />
       <Footer />

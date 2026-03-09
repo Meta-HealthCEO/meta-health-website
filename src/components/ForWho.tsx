@@ -1,141 +1,102 @@
-import { Building2, Hospital, Stethoscope } from 'lucide-react';
+import { Building, Users, Hospital } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
 
-const ForWho = () => {
-  const audiences = [
+export default function ForWho() {
+  const [ref, isInView] = useInView<HTMLDivElement>();
+
+  const segments = [
     {
-      icon: Stethoscope,
-      title: 'Medical Practices',
-      description: 'Perfect for GP practices, specialist clinics, and multi-doctor groups',
+      icon: Users,
+      title: 'Private Practices',
+      description: 'Complete solution for solo practitioners and small group practices',
       image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80',
-      features: [
-        'Complete EMR/EHR system',
-        'Medical aid billing integration',
-        'Appointment scheduling',
-        'Prescription management',
-        'Patient portal access',
-        'HPCSA compliance tools',
-      ],
-      stats: { number: '500+', label: 'Practices' },
+      features: ['Quick Setup', 'Affordable Pricing', 'Easy to Use', 'Full EMR']
     },
     {
-      icon: Building2,
-      title: 'Specialty Clinics',
-      description: 'Tailored workflows for dental, physio, dermatology, and more',
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&q=80',
-      features: [
-        'Specialty-specific templates',
-        'Treatment planning tools',
-        'Before/after imaging',
-        'Multi-location support',
-        'Revenue cycle management',
-        'Inventory tracking',
-      ],
-      stats: { number: '200+', label: 'Clinics' },
+      icon: Building,
+      title: 'Multi-Specialty Clinics',
+      description: 'Streamline operations across multiple specialties and departments',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
+      features: ['Multi-Provider', 'Integrated Scheduling', 'Unified Billing', 'Analytics']
     },
     {
       icon: Hospital,
-      title: 'Hospitals & Day Clinics',
-      description: 'Enterprise-grade hospital information system (HIS)',
+      title: 'Hospitals',
+      description: 'Enterprise-grade system for large healthcare facilities',
       image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
-      features: [
-        'Bed & ward management',
-        'Theatre scheduling',
-        'ICU monitoring',
-        'Admission/discharge workflows',
-        'Multi-department coordination',
-        'Emergency room management',
-      ],
-      stats: { number: '50+', label: 'Hospitals' },
-    },
+      features: ['Scalable', 'Multi-Facility', 'Advanced Security', 'Custom Workflows']
+    }
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Built for Every Healthcare Provider
+    <section className="section bg-white relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white"></div>
+      
+      <div className="relative z-10 container-custom" ref={ref}>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-slate-900 mb-6">
+            Built For <span className="gradient-text">Every Practice</span>
           </h2>
-          <p className="text-xl text-gray-600">
-            From solo practitioners to multi-facility hospital groups, Meta Health scales with your needs
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            From solo practitioners to large hospital networks, we have the perfect solution
           </p>
         </div>
 
-        {/* Audiences */}
-        <div className="space-y-12">
-          {audiences.map((audience, index) => {
-            const Icon = audience.icon;
-            const isEven = index % 2 === 0;
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {segments.map((segment, index) => {
+            const Icon = segment.icon;
             return (
               <div
-                key={audience.title}
-                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
-                  isEven ? '' : 'lg:grid-flow-dense'
-                }`}
+                key={segment.title}
+                className={`
+                  group relative overflow-hidden rounded-2xl
+                  hover:scale-105 transition-all duration-500
+                  ${isInView ? 'animate-in' : 'scroll-animate'}
+                `}
+                style={{ 
+                  animationDelay: `${index * 0.2}s`,
+                  height: '500px'
+                }}
               >
                 {/* Image */}
-                <div className={isEven ? '' : 'lg:col-start-2'}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img
-                      src={audience.image}
-                      alt={audience.title}
-                      className="w-full h-auto"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
-                    
-                    {/* Stats Overlay */}
-                    <div className="absolute bottom-6 left-6 bg-white rounded-xl shadow-xl p-4">
-                      <p className="text-3xl font-bold text-blue-600">{audience.stats.number}</p>
-                      <p className="text-sm text-gray-600">{audience.stats.label}</p>
-                    </div>
-                  </div>
-                </div>
-
+                <img
+                  src={segment.image}
+                  alt={segment.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/60 group-hover:from-blue-950 group-hover:via-blue-900/80 transition-all duration-500"></div>
+                
                 {/* Content */}
-                <div className={isEven ? 'lg:col-start-2' : 'lg:col-start-1 lg:row-start-1'}>
-                  <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                    <Icon className="text-blue-600" size={32} />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mb-4 glow-blue">
+                    <Icon className="text-white" size={32} />
                   </div>
                   
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    {audience.title}
+                  <h3 className="text-3xl font-bold text-white mb-3">
+                    {segment.title}
                   </h3>
                   
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    {audience.description}
+                  <p className="text-slate-300 mb-6">
+                    {segment.description}
                   </p>
-
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {audience.features.map((feature) => (
-                      <div key={feature} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
+                  
+                  <ul className="space-y-2">
+                    {segment.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-slate-200">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400"></div>
+                        {feature}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             );
           })}
         </div>
-
-        {/* Bottom Banner */}
-        <div className="mt-20 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-8 lg:p-12 text-white text-center">
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-            Not Sure Which Plan Fits Your Practice?
-          </h3>
-          <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
-            Schedule a personalized demo with our healthcare technology experts
-          </p>
-          <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors shadow-xl">
-            Book a Demo
-          </button>
-        </div>
       </div>
     </section>
   );
-};
-
-export default ForWho;
+}

@@ -1,79 +1,100 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navigation() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'Ecosystem', href: '#ecosystem' },
-    { label: 'Modules', href: '#modules' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'glass-card shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg"></div>
-              <span className="text-xl font-bold text-gray-900">Meta Health</span>
-            </a>
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center glow-blue">
+              <span className="text-white font-bold text-xl">M</span>
+            </div>
+            <span className="text-white font-bold text-xl">Meta Health</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+            <a href="#features" className="text-slate-300 hover:text-white transition-colors">
+              Features
+            </a>
+            <a href="#ecosystem" className="text-slate-300 hover:text-white transition-colors">
+              Ecosystem
+            </a>
+            <a href="#modules" className="text-slate-300 hover:text-white transition-colors">
+              Modules
+            </a>
+            <a href="#pricing" className="text-slate-300 hover:text-white transition-colors">
+              Pricing
+            </a>
+            <button className="btn-glow">
               Get Started
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600"
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden glass-card rounded-lg mt-2 p-4 space-y-4">
+            <a
+              href="#features"
+              className="block text-slate-300 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              Features
+            </a>
+            <a
+              href="#ecosystem"
+              className="block text-slate-300 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Ecosystem
+            </a>
+            <a
+              href="#modules"
+              className="block text-slate-300 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Modules
+            </a>
+            <a
+              href="#pricing"
+              className="block text-slate-300 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Pricing
+            </a>
+            <button className="btn-glow w-full">Get Started</button>
           </div>
-        </div>
+        )}
       </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-4 pt-2 pb-4 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
-              Get Started
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
-};
-
-export default Navigation;
+}
