@@ -1,73 +1,71 @@
-import { Monitor, Smartphone, Wifi } from 'lucide-react';
+import { Monitor, Smartphone, Wifi, ArrowRight } from 'lucide-react';
 
 const pillars = [
   {
     icon: Monitor,
-    title: 'Web Platform',
-    subtitle: 'For practitioners & staff',
-    desc: 'Full practice management suite accessible from any browser. Scheduling, billing, clinical notes, reporting, and admin — all in one dashboard.',
-    features: ['25+ integrated modules', 'Role-based access control', 'Real-time dashboards', 'Multi-location support'],
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80',
+    title: 'Meta Health Zero',
+    subtitle: 'Web Platform',
+    desc: 'The full EHR and practice/hospital management system. Clinical workflows, billing, scheduling, reporting, and administration — all accessible from any browser.',
+    points: ['Complete EHR with clinical notes', 'Medical aid billing & claims', 'Hospital ADT & ward management', 'Real-time dashboards & reporting'],
   },
   {
     icon: Smartphone,
-    title: 'Mobile App',
-    subtitle: 'For patients',
-    desc: 'Meta Health One — your patients\' healthcare companion. Appointments, prescriptions, health tracking, and direct messaging with their care team.',
-    features: ['iOS and Android', 'Appointment booking', 'Health tracking & vitals', 'AI health assistant'],
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
+    title: 'Meta Health One',
+    subtitle: 'Patient Mobile App',
+    desc: 'Your patients\' healthcare companion. Appointments, prescriptions, health tracking, telemedicine, and secure messaging — healthcare in their pocket.',
+    points: ['Appointment booking & reminders', 'Video consultations', 'Health vitals & device sync', 'Prescription management'],
   },
   {
     icon: Wifi,
-    title: 'Connected Devices',
+    title: 'Device Ecosystem',
     subtitle: 'Wearables & RPM',
-    desc: 'Seamless integration with consumer wearables and clinical-grade remote monitoring devices. Patient data flows directly into their records.',
-    features: ['Apple Watch & Garmin', 'Fitbit & Samsung', 'BP monitors & glucometers', 'Pulse oximeters & scales'],
-    image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=600&q=80',
+    desc: 'Seamless integration with consumer wearables and clinical-grade remote monitoring devices. Patient data flows directly into the EHR in real time.',
+    points: ['Apple Watch, Garmin, Fitbit', 'BP monitors & glucometers', 'Pulse oximeters & scales', 'Automated clinical alerts'],
   },
 ];
 
 export default function Ecosystem() {
   return (
-    <section id="ecosystem" className="section bg-gray-50">
+    <section id="ecosystem" className="section bg-slate-900">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-sky-600 uppercase tracking-wider mb-3">Connected ecosystem</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Three pillars, one ecosystem
+          <p className="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-3">The ecosystem</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            Three products. One connected platform.
           </h2>
-          <p className="text-lg text-gray-500">
-            Web, mobile, and devices — all connected in real time. Doctors get the full picture, patients stay engaged.
+          <p className="text-lg text-slate-400">
+            Everything talks to everything. Doctor updates a record on the web — patient sees it on mobile. 
+            Patient takes a blood pressure reading — doctor gets it in the EHR.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {pillars.map((p) => {
             const Icon = p.icon;
             return (
-              <div key={p.title} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
-                <div className="h-52 overflow-hidden">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
-                      <Icon size={20} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900">{p.title}</h3>
-                      <p className="text-xs text-gray-400">{p.subtitle}</p>
-                    </div>
+              <div key={p.title} className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-sky-500/30 transition-all duration-300 group">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-11 h-11 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                    <Icon size={22} />
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
-                  <ul className="space-y-2">
-                    {p.features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 rounded-full bg-sky-500" />
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
+                  <div>
+                    <h3 className="font-bold text-white">{p.title}</h3>
+                    <p className="text-xs text-slate-500">{p.subtitle}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed mb-5">{p.desc}</p>
+                <ul className="space-y-2.5">
+                  {p.points.map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm text-slate-300">
+                      <div className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 pt-5 border-t border-slate-700/50">
+                  <a href="#cta" className="inline-flex items-center gap-1 text-sm text-sky-400 font-medium hover:text-sky-300 transition-colors">
+                    Learn more <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
             );
