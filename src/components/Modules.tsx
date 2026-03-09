@@ -1,118 +1,106 @@
-export default function Modules() {
+import {
+  Calendar,
+  Users,
+  FileText,
+  Pill,
+  TestTube,
+  Stethoscope,
+  Bed,
+  Scissors,
+  ClipboardList,
+  CreditCard,
+  DollarSign,
+  BarChart3,
+  Shield,
+  MessageSquare,
+  Video,
+  Phone,
+  Mail,
+  Bell,
+  Clock,
+  Database,
+  Lock,
+  UserCheck,
+  Briefcase,
+  Package,
+  TrendingUp,
+  Activity,
+} from 'lucide-react';
+
+const Modules = () => {
   const modules = [
-    { name: "Patient Management", icon: "👥" },
-    { name: "Appointment Scheduling", icon: "📅" },
-    { name: "Clinical Notes", icon: "📝" },
-    { name: "Video Consultations", icon: "🎥" },
-    { name: "Prescription Management", icon: "💊" },
-    { name: "Lab Orders", icon: "🔬" },
-    { name: "Vitals Tracking", icon: "❤️" },
-    { name: "Medical Aid Billing", icon: "💳" },
-    { name: "Invoicing", icon: "🧾" },
-    { name: "Payments", icon: "💰" },
-    { name: "Accounting", icon: "📊" },
-    { name: "Bank Reconciliation", icon: "🏦" },
-    { name: "Inventory Management", icon: "📦" },
-    { name: "Staff Management", icon: "👨‍⚕️" },
-    { name: "Access Control", icon: "🔐" },
-    { name: "Patient Portal", icon: "🌐" },
-    { name: "Messaging", icon: "💬" },
-    { name: "Notifications", icon: "🔔" },
-    { name: "Referrals", icon: "🔄" },
-    { name: "Reports & Analytics", icon: "📈" },
-    { name: "System Administration", icon: "⚙️" },
-    { name: "Facility Management", icon: "🏥" },
-    { name: "Encounter Tracking", icon: "📋" },
-    { name: "GoodX Integration", icon: "🔗" }
-  ]
+    { icon: Calendar, name: 'Appointment Scheduling' },
+    { icon: Users, name: 'Patient Management' },
+    { icon: FileText, name: 'Electronic Medical Records' },
+    { icon: Pill, name: 'Prescription Management' },
+    { icon: TestTube, name: 'Laboratory Integration' },
+    { icon: Stethoscope, name: 'Clinical Workflows' },
+    { icon: Bed, name: 'Bed Management' },
+    { icon: Scissors, name: 'Theatre Scheduling' },
+    { icon: ClipboardList, name: 'Nursing Station' },
+    { icon: CreditCard, name: 'Medical Aid Billing' },
+    { icon: DollarSign, name: 'Invoice & Payments' },
+    { icon: BarChart3, name: 'Analytics & Reporting' },
+    { icon: Shield, name: 'POPIA Compliance' },
+    { icon: MessageSquare, name: 'Secure Messaging' },
+    { icon: Video, name: 'Telemedicine' },
+    { icon: Phone, name: 'Call Center Integration' },
+    { icon: Mail, name: 'Email Automation' },
+    { icon: Bell, name: 'Smart Notifications' },
+    { icon: Clock, name: 'Waiting Room Management' },
+    { icon: Database, name: 'Data Backup & Recovery' },
+    { icon: Lock, name: 'Access Control' },
+    { icon: UserCheck, name: 'Staff Management' },
+    { icon: Briefcase, name: 'Inventory Control' },
+    { icon: Package, name: 'Pharmacy Management' },
+    { icon: TrendingUp, name: 'Business Intelligence' },
+    { icon: Activity, name: 'Vitals Monitoring' },
+  ];
 
   return (
-    <section className="section bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container-custom">
+    <section id="modules" className="py-20 lg:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             25+ Integrated Modules
           </h2>
           <p className="text-xl text-gray-600">
-            Every tool you need, seamlessly integrated into one powerful platform. 
-            No juggling multiple systems or duplicate data entry.
+            Everything you need to run a modern healthcare facility, all in one unified platform
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {modules.map((module, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-            >
-              <div className="text-3xl mb-2">{module.icon}</div>
-              <div className="text-sm font-semibold text-gray-800">{module.name}</div>
-            </div>
-          ))}
+        {/* Modules Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {modules.map((module, index) => {
+            const Icon = module.icon;
+            return (
+              <div
+                key={module.name}
+                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group"
+                style={{ animationDelay: `${index * 30}ms` }}
+              >
+                <div className="bg-gray-100 group-hover:bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors">
+                  <Icon className="text-gray-700 group-hover:text-blue-600 transition-colors" size={22} />
+                </div>
+                <h3 className="text-sm font-semibold text-gray-900 leading-snug">
+                  {module.name}
+                </h3>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Integration note */}
-        <div className="mt-16 bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Everything Works Together
-              </h3>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Unlike cobbled-together software suites, Meta Health is a unified platform 
-                where every module shares the same data, speaks the same language, and works 
-                seamlessly together. No integration nightmares. No duplicate data entry.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-gray-700">Real-time data sync across all modules</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-gray-700">Single patient record, infinite views</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-gray-700">Automated workflows between modules</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary-500 to-teal-500 rounded-2xl p-8 text-white">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <span>📅 Appointment</span>
-                    <span className="text-2xl">→</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <span>📝 Clinical Note</span>
-                    <span className="text-2xl">→</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <span>💊 Prescription</span>
-                    <span className="text-2xl">→</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <span>💳 Billing</span>
-                    <span className="text-2xl">✓</span>
-                  </div>
-                </div>
-                <div className="mt-6 text-center text-sm opacity-90">
-                  Seamless workflow automation
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-600 mb-6">All modules are fully integrated and work seamlessly together</p>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg shadow-blue-200">
+            View Full Feature List
+          </button>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Modules;

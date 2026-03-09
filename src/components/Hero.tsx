@@ -1,109 +1,81 @@
-export default function Hero() {
-  return (
-    <section className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-teal-600 text-white overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
-      </div>
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
-      <div className="relative section container-custom">
+const Hero = () => {
+  return (
+    <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
+          {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="inline-block">
-              <span className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
-                🚀 Next-Generation Healthcare Technology
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                South Africa's Leading Healthcare Platform
               </span>
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-              The Complete Healthcare Platform
-              <span className="block text-teal-200 mt-2">Powered by AI</span>
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              Enterprise Healthcare Management
+              <span className="block text-blue-600 mt-2">Built for Scale</span>
             </h1>
             
-            <p className="text-xl text-blue-100 leading-relaxed">
-              Meta Health delivers an all-in-one healthcare technology platform for medical practices, 
-              clinics, and hospitals. From patient management to medical aid billing, telemedicine to 
-              AI-powered clinical notes — we automate your entire workflow.
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Comprehensive practice management, hospital operations, and patient care ecosystem designed for South African healthcare providers. HPCSA compliant, POPIA certified.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#pricing" className="btn btn-primary bg-white text-primary-600 hover:bg-gray-100 text-center">
-                Get Started Today
-              </a>
-              <a href="#features" className="btn bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white/20 text-center">
-                Explore Features
-              </a>
+            {/* Trust Indicators */}
+            <div className="space-y-3">
+              {[
+                'Trusted by 500+ healthcare facilities',
+                'POPIA compliant & HPCSA certified',
+                'Full medical aid integration & billing',
+              ].map((item) => (
+                <div key={item} className="flex items-center space-x-3">
+                  <CheckCircle2 className="text-green-500 flex-shrink-0" size={20} />
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
-              <div>
-                <div className="text-3xl font-bold">25+</div>
-                <div className="text-blue-200 text-sm">Core Modules</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">100%</div>
-                <div className="text-blue-200 text-sm">AI Automated</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">24/7</div>
-                <div className="text-blue-200 text-sm">Cloud Access</div>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors shadow-lg shadow-blue-200">
+                <span>Schedule a Demo</span>
+                <ArrowRight size={20} />
+              </button>
+              <button className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-lg font-semibold border-2 border-gray-200 transition-colors">
+                View Pricing
+              </button>
             </div>
           </div>
 
-          {/* Right visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 bg-white/95 rounded-lg p-4 shadow-lg">
-                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-600">Patient Check-in</div>
-                    <div className="font-semibold text-gray-900">AI Verified ✓</div>
-                  </div>
+          {/* Right Column - Image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80"
+                alt="Healthcare professional using Meta Health platform"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+            </div>
+            
+            {/* Floating Stats Card */}
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-gray-100">
+              <div className="flex items-center space-x-4">
+                <div className="bg-green-100 rounded-full p-3">
+                  <CheckCircle2 className="text-green-600" size={24} />
                 </div>
-
-                <div className="flex items-center gap-3 bg-white/95 rounded-lg p-4 shadow-lg">
-                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-600">Clinical Notes</div>
-                    <div className="font-semibold text-gray-900">Auto-Generated</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 bg-white/95 rounded-lg p-4 shadow-lg">
-                  <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-600">Medical Aid Claim</div>
-                    <div className="font-semibold text-gray-900">Processing...</div>
-                  </div>
+                <div>
+                  <p className="text-2xl font-bold text-gray-900">99.9%</p>
+                  <p className="text-sm text-gray-600">Uptime SLA</p>
                 </div>
               </div>
-            </div>
-
-            {/* Floating badge */}
-            <div className="absolute -top-4 -right-4 bg-teal-500 text-white px-6 py-3 rounded-full font-bold shadow-xl">
-              AI Powered
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Hero;

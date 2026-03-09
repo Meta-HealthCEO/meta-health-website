@@ -1,108 +1,116 @@
-export default function AIAutomation() {
+import { Brain, FileText, Calendar, Users, TrendingUp, Shield } from 'lucide-react';
+
+const AIAutomation = () => {
   const aiFeatures = [
     {
-      title: "AI Clinical Notes",
-      description: "Auto-generate comprehensive clinical notes from consultations. Our AI listens, understands, and documents — saving you hours every day.",
-      icon: "📝"
+      icon: Brain,
+      title: 'Clinical Decision Support',
+      description: 'AI-powered diagnostic assistance, drug interaction alerts, and evidence-based treatment recommendations.',
+      impact: '40% faster diagnosis',
     },
     {
-      title: "AI-Powered Billing",
-      description: "Intelligent billing code suggestions, automated claim generation, and error detection before submission. Maximize revenue with zero effort.",
-      icon: "💰"
+      icon: FileText,
+      title: 'Automated Documentation',
+      description: 'Voice-to-text clinical notes, smart templating, and automated coding for ICD-10 and CPT compliance.',
+      impact: '3 hours saved daily',
     },
     {
-      title: "Smart Scheduling",
-      description: "AI optimizes your appointment schedule, predicts no-shows, suggests optimal booking times, and automatically handles rescheduling.",
-      icon: "📅"
+      icon: Calendar,
+      title: 'Intelligent Scheduling',
+      description: 'AI optimization of appointment slots, no-show prediction, and automated patient routing.',
+      impact: '25% more patients',
     },
     {
-      title: "Intelligent Insights",
-      description: "Get actionable insights from your practice data. Predict patient outcomes, identify trends, and optimize operations with AI analytics.",
-      icon: "📊"
-    }
-  ]
+      icon: Users,
+      title: 'Smart Triage',
+      description: 'Automated patient prioritization, severity assessment, and intelligent resource allocation.',
+      impact: '60% faster triage',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Predictive Analytics',
+      description: 'Early risk detection, readmission prevention, and population health management insights.',
+      impact: '35% risk reduction',
+    },
+    {
+      icon: Shield,
+      title: 'Fraud Detection',
+      description: 'Automated billing audit, claim validation, and anomaly detection for medical aid submissions.',
+      impact: '99% accuracy',
+    },
+  ];
 
   return (
-    <section className="section bg-gradient-to-br from-gray-900 via-primary-900 to-gray-900 text-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-teal-500 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+    <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 opacity-20">
+        <img
+          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80"
+          alt="AI Technology"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-gray-900 to-blue-900"></div>
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <div>
-            <div className="inline-block mb-6">
-              <span className="bg-gradient-to-r from-teal-400 to-blue-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">
-                🤖 AI-First Platform
-              </span>
-            </div>
-            
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Fully Automated with
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
-                Artificial Intelligence
-              </span>
-            </h2>
-            
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Meta Health isn't just practice management software — it's your AI-powered healthcare assistant. 
-              Every module is enhanced with artificial intelligence to automate repetitive tasks, 
-              reduce errors, and free up your time for what matters: patient care.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-3">
-                <div className="text-2xl font-bold">80%</div>
-                <div className="text-sm text-gray-300">Time Saved</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-3">
-                <div className="text-2xl font-bold">99%</div>
-                <div className="text-sm text-gray-300">Accuracy</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-6 py-3">
-                <div className="text-2xl font-bold">24/7</div>
-                <div className="text-sm text-gray-300">AI Support</div>
-              </div>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-block mb-6">
+            <span className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
+              Powered by AI
+            </span>
           </div>
-
-          {/* Right features grid */}
-          <div className="space-y-6">
-            {aiFeatures.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex gap-4">
-                  <div className="text-4xl">{feature.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                    <p className="text-gray-300">{feature.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Artificial Intelligence That Works
+            <span className="block text-blue-400 mt-2">for Healthcare</span>
+          </h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Advanced machine learning and AI automation to enhance clinical outcomes, reduce administrative burden, and improve patient care
+          </p>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-teal-500 to-blue-500 rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold mb-4">
-              Stop Doing Paperwork. Start Treating Patients.
-            </h3>
-            <p className="text-xl mb-6 text-white/90">
-              Let AI handle the administrative burden while you focus on healthcare.
-            </p>
-            <a href="#pricing" className="btn bg-white text-primary-600 hover:bg-gray-100 inline-block">
-              Experience AI Automation
-            </a>
+        {/* AI Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {aiFeatures.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.title}
+                className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl hover:bg-white/15 transition-all duration-300"
+              >
+                <div className="bg-blue-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="text-blue-400" size={28} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-gray-300 mb-4 leading-relaxed">{feature.description}</p>
+                <div className="inline-block px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-lg">
+                  <span className="text-green-400 font-semibold text-sm">{feature.impact}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Stats */}
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-12">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-blue-400 mb-2">10M+</p>
+              <p className="text-gray-300">AI Predictions Made</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-blue-400 mb-2">95%</p>
+              <p className="text-gray-300">Clinical Accuracy</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-blue-400 mb-2">15hrs</p>
+              <p className="text-gray-300">Saved per Provider Weekly</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default AIAutomation;

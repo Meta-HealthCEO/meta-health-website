@@ -1,111 +1,141 @@
-export default function ForWho() {
+import { Building2, Hospital, Stethoscope } from 'lucide-react';
+
+const ForWho = () => {
   const audiences = [
     {
-      title: "Medical Practices",
-      description: "Perfect for solo practitioners and group practices. Manage appointments, patient records, billing, and clinical notes — all in one place.",
+      icon: Stethoscope,
+      title: 'Medical Practices',
+      description: 'Perfect for GP practices, specialist clinics, and multi-doctor groups',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80',
       features: [
-        "Patient management",
-        "Appointment scheduling",
-        "Medical aid billing",
-        "Clinical notes & templates",
-        "Prescription management"
+        'Complete EMR/EHR system',
+        'Medical aid billing integration',
+        'Appointment scheduling',
+        'Prescription management',
+        'Patient portal access',
+        'HPCSA compliance tools',
       ],
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-        </svg>
-      ),
-      gradient: "from-blue-500 to-blue-600"
+      stats: { number: '500+', label: 'Practices' },
     },
     {
-      title: "Clinics & Day Hospitals",
-      description: "Scale your operations with multi-provider scheduling, resource management, and comprehensive reporting for clinic administrators.",
+      icon: Building2,
+      title: 'Specialty Clinics',
+      description: 'Tailored workflows for dental, physio, dermatology, and more',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&q=80',
       features: [
-        "Multi-provider scheduling",
-        "Resource allocation",
-        "Staff management",
-        "Lab order integration",
-        "Inventory management"
+        'Specialty-specific templates',
+        'Treatment planning tools',
+        'Before/after imaging',
+        'Multi-location support',
+        'Revenue cycle management',
+        'Inventory tracking',
       ],
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-      gradient: "from-teal-500 to-teal-600"
+      stats: { number: '200+', label: 'Clinics' },
     },
     {
-      title: "Hospitals",
-      description: "Enterprise-grade hospital management with ward tracking, OR scheduling, bed allocation, and department-level reporting.",
+      icon: Hospital,
+      title: 'Hospitals & Day Clinics',
+      description: 'Enterprise-grade hospital information system (HIS)',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
       features: [
-        "Ward & bed management",
-        "Operating room scheduling",
-        "Department tracking",
-        "Advanced reporting",
-        "Multi-facility support"
+        'Bed & ward management',
+        'Theatre scheduling',
+        'ICU monitoring',
+        'Admission/discharge workflows',
+        'Multi-department coordination',
+        'Emergency room management',
       ],
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-      gradient: "from-purple-500 to-purple-600"
-    }
-  ]
+      stats: { number: '50+', label: 'Hospitals' },
+    },
+  ];
 
   return (
-    <section id="for-who" className="section bg-white">
-      <div className="container-custom">
+    <section className="py-20 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Built For Every Healthcare Provider
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Built for Every Healthcare Provider
           </h2>
           <p className="text-xl text-gray-600">
-            Whether you're a solo practitioner, a multi-provider clinic, or a large hospital, 
-            Meta Health scales to meet your needs.
+            From solo practitioners to multi-facility hospital groups, Meta Health scales with your needs
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {audiences.map((audience, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
-            >
-              {/* Header with gradient */}
-              <div className={`bg-gradient-to-br ${audience.gradient} text-white p-8`}>
-                <div className="mb-4">{audience.icon}</div>
-                <h3 className="text-2xl font-bold mb-3">{audience.title}</h3>
-                <p className="text-white/90">{audience.description}</p>
-              </div>
+        {/* Audiences */}
+        <div className="space-y-12">
+          {audiences.map((audience, index) => {
+            const Icon = audience.icon;
+            const isEven = index % 2 === 0;
 
-              {/* Features list */}
-              <div className="p-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Key Features:</h4>
-                <ul className="space-y-3">
-                  {audience.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+            return (
+              <div
+                key={audience.title}
+                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
+                  isEven ? '' : 'lg:grid-flow-dense'
+                }`}
+              >
+                {/* Image */}
+                <div className={isEven ? '' : 'lg:col-start-2'}>
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                    <img
+                      src={audience.image}
+                      alt={audience.title}
+                      className="w-full h-auto"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+                    
+                    {/* Stats Overlay */}
+                    <div className="absolute bottom-6 left-6 bg-white rounded-xl shadow-xl p-4">
+                      <p className="text-3xl font-bold text-blue-600">{audience.stats.number}</p>
+                      <p className="text-sm text-gray-600">{audience.stats.label}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className={isEven ? 'lg:col-start-2' : 'lg:col-start-1 lg:row-start-1'}>
+                  <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                    <Icon className="text-blue-600" size={32} />
+                  </div>
+                  
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    {audience.title}
+                  </h3>
+                  
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    {audience.description}
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {audience.features.map((feature) => (
+                      <div key={feature} className="flex items-start space-x-2">
+                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Bottom note */}
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-gray-100 rounded-full px-8 py-4">
-            <p className="text-gray-700">
-              <span className="font-semibold">All plans include:</span> Unlimited users • Cloud storage • Mobile apps • 24/7 support
-            </p>
-          </div>
+        {/* Bottom Banner */}
+        <div className="mt-20 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-8 lg:p-12 text-white text-center">
+          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+            Not Sure Which Plan Fits Your Practice?
+          </h3>
+          <p className="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">
+            Schedule a personalized demo with our healthcare technology experts
+          </p>
+          <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors shadow-xl">
+            Book a Demo
+          </button>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default ForWho;

@@ -1,144 +1,159 @@
-export default function Pricing() {
+import { Check, ArrowRight } from 'lucide-react';
+
+const Pricing = () => {
+  const plans = [
+    {
+      name: 'Practice',
+      description: 'For solo practitioners and small practices',
+      price: 'From R4,500',
+      period: 'per month',
+      features: [
+        'Up to 3 practitioners',
+        'Complete EMR/EHR system',
+        'Appointment scheduling',
+        'Medical aid billing',
+        'Patient portal',
+        'Prescription management',
+        'Basic reporting',
+        'Email support',
+      ],
+      cta: 'Contact Sales',
+      highlighted: false,
+    },
+    {
+      name: 'Clinic',
+      description: 'For multi-doctor clinics and specialty practices',
+      price: 'From R12,500',
+      period: 'per month',
+      features: [
+        'Up to 15 practitioners',
+        'All Practice features',
+        'Telemedicine included',
+        'Device integration',
+        'Advanced analytics',
+        'Multi-location support',
+        'Priority support',
+        'Custom workflows',
+        'API access',
+      ],
+      cta: 'Contact Sales',
+      highlighted: true,
+    },
+    {
+      name: 'Hospital',
+      description: 'For hospitals and large healthcare groups',
+      price: 'Custom',
+      period: 'enterprise pricing',
+      features: [
+        'Unlimited practitioners',
+        'All Clinic features',
+        'Hospital information system',
+        'Bed & theatre management',
+        'Emergency room module',
+        'ICU monitoring',
+        'Dedicated account manager',
+        'White-label options',
+        'SLA guarantee',
+      ],
+      cta: 'Contact Sales',
+      highlighted: false,
+    },
+  ];
+
   return (
-    <section id="pricing" className="section bg-gradient-to-br from-gray-900 to-primary-900 text-white">
-      <div className="container-custom">
+    <section id="pricing" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Enterprise Pricing for Every Size Practice
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Transparent, Scalable Pricing
           </h2>
-          <p className="text-xl text-gray-300">
-            Contact us for a customized quote based on your practice size, 
-            modules needed, and number of providers.
+          <p className="text-xl text-gray-600">
+            No hidden fees. No per-patient charges. One predictable monthly price.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Main pricing card */}
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="bg-gradient-to-r from-teal-500 to-blue-500 p-8 text-center">
-              <h3 className="text-3xl font-bold mb-2">Custom Enterprise Solution</h3>
-              <p className="text-lg text-white/90">Tailored to your exact requirements</p>
+        {/* Pricing Cards */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`relative bg-white rounded-2xl border-2 ${
+                plan.highlighted
+                  ? 'border-blue-600 shadow-2xl lg:scale-105'
+                  : 'border-gray-200 shadow-lg'
+              } p-8 transition-all hover:shadow-2xl`}
+            >
+              {plan.highlighted && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  Most Popular
+                </div>
+              )}
+
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <p className="text-gray-600">{plan.description}</p>
+              </div>
+
+              <div className="mb-8">
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                </div>
+                <p className="text-gray-600 mt-1">{plan.period}</p>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start space-x-3">
+                    <Check className="text-green-500 flex-shrink-0 mt-0.5" size={20} />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors ${
+                  plan.highlighted
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-200'
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                }`}
+              >
+                <span>{plan.cta}</span>
+                <ArrowRight size={20} />
+              </button>
             </div>
+          ))}
+        </div>
 
-            <div className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div>
-                  <h4 className="text-xl font-bold mb-6">What's Included:</h4>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>All 25+ modules included</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Unlimited users and providers</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Full AI automation suite</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Cloud hosting & backups</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Mobile apps (iOS & Android)</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold mb-6">Support & Training:</h4>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Dedicated implementation team</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Comprehensive staff training</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Data migration assistance</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>24/7 priority support</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Regular feature updates</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <div className="text-center border-t border-white/20 pt-8">
-                <h4 className="text-2xl font-bold mb-4">Ready to Get Started?</h4>
-                <p className="text-gray-300 mb-6 text-lg">
-                  Schedule a demo and receive a custom quote within 24 hours.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="mailto:info@meta-health.co.za?subject=Meta Health Demo Request" 
-                    className="btn bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:from-teal-600 hover:to-blue-600 inline-block text-center"
-                  >
-                    📧 Request a Demo
-                  </a>
-                  <a 
-                    href="tel:+27123456789" 
-                    className="btn bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white/20 inline-block text-center"
-                  >
-                    📞 Call Us Now
-                  </a>
-                </div>
-              </div>
+        {/* Bottom Info */}
+        <div className="bg-white rounded-2xl border border-gray-200 p-8 lg:p-12">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-3xl font-bold text-blue-600 mb-2">30 Days</p>
+              <p className="text-gray-700">Free trial period</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-blue-600 mb-2">No Setup Fee</p>
+              <p className="text-gray-700">Free onboarding & training</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-blue-600 mb-2">24/7</p>
+              <p className="text-gray-700">Support available</p>
             </div>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl mb-2">🔒</div>
-              <div className="font-semibold mb-1">POPIA Compliant</div>
-              <div className="text-sm text-gray-400">Full South African data protection compliance</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl mb-2">☁️</div>
-              <div className="font-semibold mb-1">Cloud-Based</div>
-              <div className="text-sm text-gray-400">Access anywhere, automatic backups</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-              <div className="text-3xl mb-2">🇿🇦</div>
-              <div className="font-semibold mb-1">Built for SA</div>
-              <div className="text-sm text-gray-400">Medical aid integration, local support</div>
-            </div>
+          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+            <p className="text-gray-600 mb-4">
+              All plans include data migration, staff training, and ongoing support
+            </p>
+            <p className="text-sm text-gray-500">
+              Prices exclude VAT. Medical aid integration fees may apply. Custom enterprise agreements available.
+            </p>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Pricing;
