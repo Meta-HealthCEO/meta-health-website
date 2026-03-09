@@ -1,37 +1,20 @@
-import { useInView } from '../hooks/useInView';
-
 export default function TrustedBy() {
-  const [ref, isInView] = useInView<HTMLDivElement>();
-
-  const medicalAids = [
-    { name: 'Discovery Health', logo: 'https://via.placeholder.com/150x60/1e293b/3B82F6?text=Discovery' },
-    { name: 'Momentum', logo: 'https://via.placeholder.com/150x60/1e293b/06B6D4?text=Momentum' },
-    { name: 'Bonitas', logo: 'https://via.placeholder.com/150x60/1e293b/8B5CF6?text=Bonitas' },
-    { name: 'Medshield', logo: 'https://via.placeholder.com/150x60/1e293b/3B82F6?text=Medshield' },
-    { name: 'GEMS', logo: 'https://via.placeholder.com/150x60/1e293b/06B6D4?text=GEMS' },
+  const partners = [
+    'Discovery Health', 'Momentum Health', 'Bonitas', 'Medshield', 
+    'GEMS', 'Bestmed', 'Fedhealth', 'Medihelp'
   ];
 
   return (
-    <section className="py-20 px-6 bg-slate-950">
-      <div className="container-custom" ref={ref}>
-        <div className="text-center mb-12">
-          <p className="text-slate-400 text-sm uppercase tracking-wider mb-4">
-            Trusted By Leading Medical Aids
-          </p>
-        </div>
-        <div className="flex flex-wrap justify-center items-center gap-12">
-          {medicalAids.map((aid, index) => (
-            <div
-              key={aid.name}
-              className={`grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 ${
-                isInView ? 'animate-in' : 'scroll-animate'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="text-slate-400 hover:text-white transition-colors text-xl font-semibold">
-                {aid.name}
-              </div>
-            </div>
+    <section className="py-12 border-y border-gray-100 bg-gray-50/50">
+      <div className="container-custom">
+        <p className="text-center text-sm font-medium text-gray-400 uppercase tracking-wider mb-8">
+          Integrated with leading South African medical aids
+        </p>
+        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
+          {partners.map((name) => (
+            <span key={name} className="text-gray-400 font-semibold text-sm hover:text-gray-600 transition-colors cursor-default">
+              {name}
+            </span>
           ))}
         </div>
       </div>

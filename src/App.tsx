@@ -7,14 +7,13 @@ import AIAutomation from './components/AIAutomation'
 import MobileApp from './components/MobileApp'
 import DeviceIntegration from './components/DeviceIntegration'
 import Modules from './components/Modules'
-import ForWho from './components/ForWho'
 import Pricing from './components/Pricing'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
       <TrustedBy />
@@ -24,7 +23,6 @@ function App() {
       <MobileApp />
       <DeviceIntegration />
       <Modules />
-      <ForWho />
       <Pricing />
       <CTA />
       <Footer />

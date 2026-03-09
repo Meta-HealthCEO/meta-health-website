@@ -6,350 +6,51 @@
 
 @layer base {
   body {
-    @apply font-sans antialiased;
-    background: #0f172a;
+    @apply font-sans antialiased bg-white text-gray-900;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-/* Animated Gradient Mesh Backgrounds - Updated with brand colors */
-@keyframes gradientFlow {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes gradientRotate {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.gradient-mesh {
-  background: linear-gradient(-45deg, #0EA5E9, #E91E8C, #00BFFF, #FF1493);
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
-}
-
-.gradient-mesh-hero {
-  background: linear-gradient(-45deg, #0f172a, #1e293b, #0EA5E9, #E91E8C, #0f172a);
-  background-size: 400% 400%;
-  animation: gradientRotate 20s ease infinite;
-}
-
-/* Animated Border Gradient - Brand colors */
-@keyframes borderRotate {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animated-border {
-  position: relative;
-  background: linear-gradient(90deg, #0EA5E9, #E91E8C, #00BFFF, #FF1493);
-  background-size: 300% 300%;
-  animation: borderRotate 6s linear infinite;
-  padding: 2px;
-  border-radius: 1rem;
-}
-
-.animated-border-content {
-  background: #1e293b;
-  border-radius: calc(1rem - 2px);
-  height: 100%;
-  width: 100%;
-}
-
-/* Grid Pattern Background */
-.grid-pattern {
-  background-image: 
-    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-.dot-pattern {
-  background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-card {
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-}
-
-/* Glow Effects - Updated with brand colors */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.15);
-}
-
-.glow-pink {
-  box-shadow: 0 0 20px rgba(233, 30, 140, 0.4), 0 0 40px rgba(233, 30, 140, 0.15);
-}
-
-.glow-blue {
-  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3), 0 0 40px rgba(0, 191, 255, 0.1);
-}
-
-.glow-purple {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1);
-}
-
-.glow-teal {
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
-}
-
-.glow-hover-cyan:hover {
-  box-shadow: 0 0 30px rgba(14, 165, 233, 0.6), 0 0 60px rgba(14, 165, 233, 0.25);
-}
-
-.glow-hover-pink:hover {
-  box-shadow: 0 0 30px rgba(233, 30, 140, 0.6), 0 0 60px rgba(233, 30, 140, 0.25);
-}
-
-.glow-hover-blue:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.2);
-}
-
-.glow-hover-purple:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.2);
-}
-
-.glow-hover-teal:hover {
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(6, 182, 212, 0.2);
-}
-
-/* Gradient Text - Brand colors */
-.gradient-text {
-  background: linear-gradient(135deg, #0EA5E9, #E91E8C, #00BFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #00BFFF, #0EA5E9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-pink {
-  background: linear-gradient(135deg, #FF1493, #E91E8C);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-blue {
-  background: linear-gradient(135deg, #60A5FA, #3B82F6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Floating Animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
-}
-
-.float-delay-1 {
-  animation: float 6s ease-in-out 1s infinite;
-}
-
-.float-delay-2 {
-  animation: float 6s ease-in-out 2s infinite;
-}
-
-/* Pulse Glow - Brand colors */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(233, 30, 140, 0.6);
-  }
-}
-
-.pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-/* Scroll Animations */
+/* Scroll animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.animate-fade-in {
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-in {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-in-left {
-  animation: fadeInLeft 0.6s ease-out forwards;
-}
-
-.animate-in-right {
-  animation: fadeInRight 0.6s ease-out forwards;
-}
-
-.animate-scale {
-  animation: scaleIn 0.6s ease-out forwards;
-}
-
-/* Stagger delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
-
-/* Initially hidden for scroll animations */
 .scroll-animate {
   opacity: 0;
 }
 
-/* Connecting Lines Animation */
-@keyframes drawLine {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+.scroll-animate.visible {
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
-.draw-line {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawLine 2s ease-out forwards;
-}
-
-/* Dot pulse for connections */
-@keyframes dotPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.5);
-  }
-}
-
-.dot-pulse {
-  animation: dotPulse 2s ease-in-out infinite;
+/* Subtle gradient background */
+.bg-gradient-subtle {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #fdf2f8 100%);
 }
 
 @layer components {
-  .btn {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
-  }
-  
-  .btn-primary {
-    @apply bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 shadow-lg hover:shadow-xl;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-  }
-  
-  .btn-glow {
-    @apply bg-gradient-to-r from-cyan-500 to-pink-600 text-white rounded-lg px-8 py-4 font-semibold;
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(233, 30, 140, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .btn-glow:hover {
-    box-shadow: 0 0 40px rgba(14, 165, 233, 0.6), 0 0 60px rgba(233, 30, 140, 0.4);
-    transform: translateY(-2px);
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .section {
-    @apply py-20 px-6;
+    @apply py-20 lg:py-28;
   }
   
-  .container-custom {
-    @apply max-w-7xl mx-auto;
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-sky-500 text-white font-semibold rounded-xl hover:bg-sky-600 transition-all duration-200 shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-sky-500 hover:text-sky-600 transition-all duration-200;
   }
 }

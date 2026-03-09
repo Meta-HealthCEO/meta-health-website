@@ -1,139 +1,62 @@
-import { Brain, Zap, TrendingUp, Shield, Clock, MessageSquare } from 'lucide-react';
-import { useInView } from '../hooks/useInView';
+import { Brain, FileText, CalendarCheck, TrendingUp, MessageSquare, Shield } from 'lucide-react';
+
+const capabilities = [
+  { icon: FileText, title: 'AI Clinical Notes', desc: 'Automatically generate SOAP notes from consultations. Review and sign off in seconds.' },
+  { icon: CalendarCheck, title: 'Smart Scheduling', desc: 'AI optimises your calendar based on appointment types, provider availability, and patient preferences.' },
+  { icon: TrendingUp, title: 'Predictive Analytics', desc: 'Identify at-risk patients, forecast no-shows, and surface insights from your practice data.' },
+  { icon: MessageSquare, title: 'Patient AI Assistant', desc: 'An AI chatbot that answers patient questions, handles bookings, and triages enquiries 24/7.' },
+  { icon: Brain, title: 'ICD-10 Auto-Coding', desc: 'AI reads clinical notes and suggests the correct diagnosis and procedure codes for billing.' },
+  { icon: Shield, title: 'Compliance Monitoring', desc: 'Automated POPIA and HPCSA compliance checks across patient data and communications.' },
+];
 
 export default function AIAutomation() {
-  const [ref, isInView] = useInView<HTMLDivElement>();
-
-  const capabilities = [
-    {
-      icon: Zap,
-      title: 'Smart Scheduling',
-      description: 'AI-powered appointment optimization and patient flow management'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Predictive Analytics',
-      description: 'Forecast patient trends and optimize resource allocation'
-    },
-    {
-      icon: Shield,
-      title: 'Clinical Decision Support',
-      description: 'Real-time alerts and evidence-based recommendations'
-    },
-    {
-      icon: Clock,
-      title: 'Workflow Automation',
-      description: 'Automate routine tasks and reduce administrative burden'
-    },
-    {
-      icon: MessageSquare,
-      title: 'Natural Language Processing',
-      description: 'Voice-to-text documentation and intelligent charting'
-    }
-  ];
-
   return (
-    <section className="section bg-slate-950 gradient-mesh-hero relative overflow-hidden">
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 dot-pattern opacity-20"></div>
-      
-      <div className="relative z-10 container-custom" ref={ref}>
+    <section className="section bg-white">
+      <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Visual */}
+          {/* Left - Image */}
           <div className="relative">
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              {/* Central Brain Icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-cyan-500 to-pink-600 flex items-center justify-center glow-cyan pulse-glow">
-                  <Brain className="text-white" size={80} />
+            <img
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&q=80"
+              alt="AI Technology"
+              className="rounded-2xl shadow-lg w-full object-cover h-[500px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent rounded-2xl" />
+            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-sky-100 flex items-center justify-center">
+                  <Brain size={20} className="text-sky-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 text-sm">AI reducing admin time by 60%</div>
+                  <div className="text-xs text-gray-500">Average across all Meta Health practices</div>
                 </div>
               </div>
-              
-              {/* Orbiting Elements */}
-              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s' }}>
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 glow-cyan"
-                    style={{
-                      top: '50%',
-                      left: '50%',
-                      transform: `rotate(${i * 72}deg) translateY(-150px)`,
-                    }}
-                  />
-                ))}
-              </div>
-              
-              {/* Connecting Lines */}
-              <svg className="absolute inset-0 w-full h-full">
-                <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#E91E8C" stopOpacity="0.3" />
-                  </linearGradient>
-                </defs>
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <line
-                    key={i}
-                    x1="50%"
-                    y1="50%"
-                    x2="50%"
-                    y2="20%"
-                    stroke="url(#lineGradient)"
-                    strokeWidth="1"
-                    className="animate-spin origin-center"
-                    style={{
-                      transformOrigin: '50% 50%',
-                      transform: `rotate(${i * 72}deg)`,
-                      animationDuration: '20s'
-                    }}
-                  />
-                ))}
-              </svg>
             </div>
           </div>
 
           {/* Right - Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-5xl font-bold mb-6">
-                <span className="gradient-text">Powered by AI</span>
+              <p className="text-sm font-semibold text-sky-600 uppercase tracking-wider mb-3">Powered by AI</p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Let AI handle the admin
               </h2>
-              <p className="text-xl text-slate-300">
-                Harness the power of artificial intelligence to deliver better patient outcomes 
-                and streamline operations.
+              <p className="text-lg text-gray-500">
+                Spend less time on paperwork and more time with patients. Our AI automates the busywork across your entire practice.
               </p>
             </div>
 
-            <div className="space-y-4">
-              {capabilities.map((capability, index) => {
-                const Icon = capability.icon;
-                const isCyan = index % 2 === 0;
+            <div className="grid sm:grid-cols-2 gap-5">
+              {capabilities.map((c) => {
+                const Icon = c.icon;
                 return (
-                  <div
-                    key={capability.title}
-                    className={`
-                      glass-card rounded-xl p-6 
-                      hover:bg-white/10 transition-all duration-300
-                      ${isInView ? 'animate-in-left' : 'scroll-animate'}
-                    `}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="flex gap-4">
-                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${
-                        isCyan ? 'from-cyan-600/20 to-cyan-600/10' : 'from-pink-600/20 to-pink-600/10'
-                      } flex items-center justify-center flex-shrink-0`}>
-                        <Icon className={isCyan ? 'text-cyan-400' : 'text-pink-400'} size={24} />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">
-                          {capability.title}
-                        </h3>
-                        <p className="text-slate-300 text-sm">
-                          {capability.description}
-                        </p>
-                      </div>
+                  <div key={c.title} className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Icon size={16} className="text-sky-500" />
+                      <h3 className="font-semibold text-gray-900 text-sm">{c.title}</h3>
                     </div>
+                    <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>
                 );
               })}
